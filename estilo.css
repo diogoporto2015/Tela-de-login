@@ -1,7 +1,4 @@
 
-
-
-
 .banner video {
     position: fixed;
     top: 0;
@@ -11,21 +8,13 @@
     height: 100vh;
 }
 
-
-
 img {
     position: relative;
     z-index: 1;
     border-radius: 110px; /*Coloca a figura redondada*/
     width: 150px; /*Define o Tamanho da Imagem*/
     box-shadow: 0px 0px 0px #ccc; /*Define uma sombra*/
-    
 }
-
-
-
-
-
 
 /* Configurando o rodapé */
 footer{
@@ -35,7 +24,5 @@ footer{
     color: white;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     position: fixed;
-   
-    
 }
 
