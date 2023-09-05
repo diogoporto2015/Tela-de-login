@@ -1,15 +1,6 @@
-body{
-    margin: 0;
-}
 
-.banner {
-    width: 100%;
-    height: 90vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: end;
-    align-items: end;
-}
+
+
 
 .banner video {
     position: fixed;
@@ -17,65 +8,24 @@ body{
     left: 0;
     object-fit: cover;
     width: 100%;
+    height: 100vh;
 }
 
-.banner .conteudo {
-    position: relative;
-    z-index: 1;
-    max-width: 100px;
-    margin-bottom: -10px;
-    margin-right: 300px;
-}
 
-.banner img {
+
+img {
     position: relative;
     z-index: 1;
     border-radius: 110px; /*Coloca a figura redondada*/
-    width: 120px; /*Define o Tamanho da Imagem*/
+    width: 150px; /*Define o Tamanho da Imagem*/
     box-shadow: 0px 0px 0px #ccc; /*Define uma sombra*/
-    margin-left: 100px;
+    
 }
 
-.banner .conteudo h2 {
-    margin: 10;
-    padding: 0;
-    text-transform: uppercase; /*coloca o texto em letra maiuscula*/
-    color: #323342;
-    width: 300px;
-    margin-left: 50px;
-}
 
-.banner input {
-    text-transform: uppercase;
-    border: 0;
-    border-radius: 20px; /*Coloca a figura redondada*/
-    width: 300px; /*Define o Tamanho da Imagem*/
-    box-shadow: 0px 0px 0px #ccc; /*Define uma sombra*/
-    padding: 15px;
-    margin: 10px;
-    font-weight: 500;
-    font-size: 1.3rem;
-    color: #323342;
-}
-.banner .button {
-    border: 0;
-    width: 330px; /*Define o Tamanho da Imagem*/
-    background-color: #005c45;
-    color: white;
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-    font-weight: 500;
-    font-size: 1.3rem;
-    border-radius: 20px; /*Coloca a figura redondada*/
-    box-shadow: 0px 0px 0px #ccc; /*Define uma sombra*/
-    padding: 15px;
-    margin: 10px;
-    cursor: pointer;
-}
 
-.button:hover {
-    background: #175e4c;
-    color: red;
-}
+
+
 
 /* Configurando o rodapé */
 footer{

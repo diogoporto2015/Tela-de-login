@@ -5,29 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="estilo.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
 </head>
 <body>
-    <button>ENTRAR</button>
-    <div class="banner"
-    >
-        <video src="./login3.mp4" width="100%" autoplay muted loop>
-        </video>
+    
+    <div class="banner ">
+        <video src="./login7.mp4" height="93%" autoplay muted loop></video>
+        
+        <img src="medimagem2.png" alt="">
 
-        <div class="conteudo"> 
-            <img src="medimagem2.png" alt="">
-            <h2> <b>Acesso ao Sistema</b> </h2>
-            <input type="text"  placeholder="USUÁRIO" required>
-            <input type="password"  name="senha" id="ipassword" placeholder="SENHA" required>
-            <div id="icon" onclick="showHide()"></div>
-            <input type="submit" id="enviar" value="Acessar" class="button">    
+        <div class="container   float-stary">
+            
+            <div class="form-floating mb-3 col-3  ">
+                <input type="email" name="" id="email" class="form-control " placeholder=" ">
+                <label for="email" class="form-label  ">E-mail</label>
+            </div>
+            <div class="form-floating col-3  ">
+                <input type="password" name="" id="senha" class="form-control" placeholder=" ">
+                <label for="senha" class="form-label">Senha</label>
+            </div>
         </div>
+            
+            
+
+
+            
+            
+            
+            
+            <div id="icon" onclick="showHide()"></div>
         
     </div>
 
-    <footer class="footer">
-        <p>&copy; Clínica MedImagem </a></p>
+    
+    <footer class="p-1 text-light text-center fixed-bottom  " style="background-color:#01BE64">
+        &copy; Med Imagem -Todos os direitos reservados.
     </footer>
+       
     
     <script src="./senha.js"></script>
 </body>
