@@ -3,9 +3,6 @@ const express = require('express');
 const bodyParser = require("body-parser");
 const encoder = bodyParser.urlencoded();
 const path = require('path');
-const ejs = require('ejs');
-const moment = require('moment');
-const { format } = require('date-fns');
 
 const app = express();
 
@@ -16,8 +13,9 @@ app.set('view engine', 'ejs');
 app.use('/css', express.static('css'));
 app.use('/js', express.static('js'));
 app.use('/imagens', express.static('imagens'));
-app.use('/fullcalendar-6.1.4/dist', express.static('fullcalendar-6.1.4/dist'));
-app.use('/fullcalendar-6.1.4/packages/core/locales/', express.static('fullcalendar-6.1.4/packages/core/locales'));
+app.use('/node_modules/bootstrap/dist/css/', express.static('./node_modules/bootstrap/dist/css/'));
+app.use('/node_modules/bootstrap/dist/js/', express.static('/node_modules/bootstrap/dist/js/'));
+app.use('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/', express.static('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/'));
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())

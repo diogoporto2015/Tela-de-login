@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" conteudo="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" conteudo="ie=edge">
+    <link rel="stylesheet" href="../css/estiloMenu.css">
+    <link rel="stylesheet" href="../css/print.css">
+    <title>Ficha do Cliente</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand navbar-dark border border-1 border-drak  bg-primary shadow ">
+        <div class="container-fluid">
+            <div class="navbar-nav">
+                <img class="navbar-brand" src="./imagens/medimagem2.png" style="width: 50px; border-radius: 100px;">
+                <span class="navbar-text pt-3"><h5>MedImagem</h5></span>
+            </div>
+
+            <form class="d-flex">
+                <a href="/" class="btn btn-primary"> Pesquisa</a> 
+            </form>                
+
+            <ul class="navbar-nav ">
+
+                <div class="dropdown mt-3">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Agenda</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="./dessiomentria.html" class="dropdown-item">Denssiometria</a>
+                                </li>
+
+                                <li>
+                                    <hr class="dropdown-divider"/>
+                                    <a href="./mamografia.html" class="dropdown-item">Mamografia</a>
+                                </li>
+                            
+                                <li>
+                                    <hr class="dropdown-divider"/>
+                                    <a href="./medicoOrtopedia.html" class="dropdown-item">Médico Ortopedia</a>
+                                </li>
+                            
+                                <li>
+                                    <hr class="dropdown-divider"/>
+                                    <a href="./raoisx.html" class="dropdown-item">Raios X</a>
+                                </li>
+                            
+                                <li>
+                                    <hr class="dropdown-divider"/>
+                                    <a href="./ultrassonografia.html" class="dropdown-item">Ultrassonografia</a>
+                                </li>
+                            </ul>
+                    </li>
+                </div>
+
+                <div class="dropdown mt-3 m-3">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Paciente</a> 
+
+                        <ul class="dropdown-menu">
+                           
+                            <li>
+                                <a href="" class="dropdown-item">Cadastro</a>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider"/>
+                                <a href="" class="dropdown-item">Declaração de Comparecimento</a>
+                            </li>
+                        
+                        </ul> 
+
+                    </li>
+                </div>
+
+                <div class="dropdown mt-3 ">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Faturamento</a>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="" class="dropdown-item">Faturamento do Paciente</a>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider"/>
+                                <a href="" class="dropdown-item">Fecha Faturamento</a>
+                            </li>
+                        
+                        </ul> 
+                </div>
+
+                <div class="dropdown mt-3 m-3">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Administatrador</a>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <h2 class="dropdown-header text-center">Funcionários</h2>
+                                <a href="" class="dropdown-item">Adicionar Cadastro</a>
+                            </li>
+
+                            <li>
+                                <a href="" class="dropdown-item">Editar cadastro</a>
+                            </li>
+                        
+                            <li>
+                                <a href="" class="dropdown-item">Apagar Cadastro</a>
+                                <hr class="dropdown-divider"/>
+                            </li>
+                        
+                            <li>
+                                <h2 class="dropdown-header text-center">Usuários</h2>
+                                <a href="" class="dropdown-item">Adicionar Cadastrar</a>
+                            </li>
+                        
+                        </ul> 
+
+                    </li>
+                </div>
+
+                <div class="dropdown">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img src="./imagens/usuario.png" alt="imagem usuario" style="width: 50px" >
+                            <span class="mb-3 ms-2">Bem Vindo</span>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+
+                            <li>
+                                <a href="./index.html" class="dropdown-item">Logout</a>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider"/>
+                                <a href="" class="dropdown-item">Sair</a>
+                            </li>
+                        
+                        </ul> 
+
+                    </li>
+                </div>
+            </ul>  
+            
+        </div>
+    </nav>
+
+    <div class="pt-4"></div>
+
+    <form class="container-sm pt-3 p-5 border bg-white shadow w-75" id="cadastroForm" action="/cadastrar" method="POST">
+
+        <div class="my-3 text-start">
+            <button type="reset" class="btn btn-primary ms-5">Limpar dados</button>
+            
+            <button type="submit" id="//cadastrar" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalCadastro">Cadastrar</button>
+
+            <div id="JanelaModalCadastro" name="JanelaModalCadastro" class="modal fade " data-bs-backdrop="static">
+
+                <div class="modal-dialog modal-lg modal-dialog-centered ">
+
+                    <div class="modal-content">
+ 
+                        <div class="modal-header align-self-center">
+                            <h2 class="modal-title">Cadastro da Ficha do Paciente</h2>
+                        </div>
+
+                        <div class="modal-body">
+                            <p><h3 class="text-center">PARABÉNS</h3></p>
+                            <p class="text-center">Cadastro realizado com sucesso!</p>
+                            <p class="text-center">Para imprimir a ficha do paciente clique em imprimir.</p>
+                        </div>
+
+                        <div class="modal-footer ">
+                            <button type="button" class="btn btn-primary" >Imprimir</button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" id="atualizar" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalAtualizar">Atualizar</button>
+
+            <div id="JanelaModalAtualizar" class="modal fade " data-bs-backdrop="static">
+
+                <div class="modal-dialog modal-lg modal-dialog-centered ">
+
+                    <div class="modal-content">
+ 
+                        <div class="modal-header align-self-center">
+                            <h2 class="modal-title">Atualização da Ficha do Paciente</h2>
+                        </div>
+
+                        <div class="modal-body">
+                            <p><h3 class="text-center">PARABÉNS</h3></p>
+                            <p class="text-center">Atualização realizado com sucesso!</p>
+                            <p class="text-center">Para imprimir a ficha do paciente clique em imprimir.</p>
+                        </div>
+
+                        <div class="modal-footer ">
+                            <button type="button" class="btn btn-primary" >Imprimir</button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" id="imprimir" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalImprimir">Imprimir</button>
+
+            <div id="JanelaModalImprimir" class="modal fade " data-bs-backdrop="static">
+
+                <div class="modal-dialog modal-lg modal-dialog-centered ">
+
+                    <div class="modal-content">
+ 
+                        <div class="modal-header align-self-center">
+                            <h2 class="modal-title">Imprimir Ficha do Paciente</h2>
+                        </div>
+
+                        <div class="modal-body">
+                            <p><h3 class="text-center">CONFIRMAÇÃO</h3></p>
+                            <p class="text-center">Para imprimir a ficha do paciente clique em imprimir.</p>
+                        </div>
+
+                        <div class="modal-footer ">
+                            <button type="button" class="btn btn-primary" onclick="imprimirFicha()">Imprimir</button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container-fluid border border-1 border-drak mb-5 p-4 bg-white shadow">
+            
+            <div class="row">
+
+                <div class="my-3 col-5">
+                    <label class="form-label">Nome:</label>
+                    <input id="nome" class="form-control" type="text" name="nome" required>
+                </div>
+
+                <div class="my-3 col">
+                    <label id="div2" class="form-label">CPF:</label>
+                    <input id="cpf" class="form-control" type="text" name="cpf" placeholder="000.000.000-00">
+                </div>
+
+                <div class="my-3 col">
+                    <label class="form-label">RG:</label>
+                    <input id="rg" class="form-control" type="text" name="rg" placeholder="000.000.00-0">
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="my-3 col">
+                    <label class="form-label">Email:</label>
+                    <input id="email" class="form-control" type="text" name="email" placeholder="Exemplo@exemplo.com">
+                </div>
+
+                <div class="my-3 col">
+                    <label class="form-label">Data de Nascimento:</label>
+                    <input id="data_nascimento" class="form-control" type="date" name="data_nascimento" >
+                </div>
+
+                <div class="my-3 col">
+                    <label class="form-label">Telefone:</label>
+                    <input id="telefone" class="form-control" type="tel" name="telefone" placeholder="(00) 0000-0000">
+                </div>
+
+                <div class="my-3 col">
+                    <label class="form-label">Celular:</label>
+                    <input id="celular" class="form-control" type="tel" name="celular" placeholder="(00) 9000-0000">
+                </div>
+
+            </div>
+
+            <div class="row ">
+
+                <div class="my-3 col-2 ms-4 ">
+                    <label class="form-label "><h5>Sexo:</h5></label>  <br>
+                    <input type="radio" id="feminino" name="sexo"  value="FEMININO"> 
+                    <label for="feminino" class="ms-2"><h6>Feminino</h6></label> <br>
+                    <input type="radio" id="masculino" name="sexo" id="masculino" value="MASCULINO">
+                    <label for="masculino" class="ms-2"><h6>Masculino</h6></label>
+                </div>
+
+                <div class="my-3 col-2" col>
+                    <label for="peso" class="form-label">Peso:</label>
+                    <input id="peso" class="form-control" type="text" name="peso" placeholder="000 Kg">
+                </div>
+
+                <div class="my-3 col-2 ms-5">
+                    <label class="form-label">Altura:</label>
+                    <input id="altura" class="form-control" type="text" name="altura" placeholder="0.00 Cm">
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class=" container-fluid border mb-5 p-4 bg-white shadow">
+
+            <div class="row">
+
+                <div class="my-3 col-5">
+                    <label class="form-label">Endereço:</label>
+                    <input id="endereco" class="form-control" type="text" name="endereco" >
+                </div>
+
+                <div class="my-3 col-2">
+                    <label class="form-label">Nº:</label>
+                    <input id="numero" class="form-control" type="text" name="numero">
+                </div>
+
+                <div class="my-3 col">
+                    <label class="form-label">Complemento:</label>
+                    <input id="complemento" class="form-control" type="text" name="complemento">
+                </div>
+                
+            </div>
+
+            <div class="row">
+
+                <div class="my-3 col">
+                    <label class="form-label">Bairro:</label>
+                    <input id="bairro" class="form-control" type="text" name="bairro">
+                </div>
+
+                <div class="my-3 col">
+                    <label class="form-label">Cidade:</label>
+                    <input id="cidade" class="form-control" type="text" name="cidade">
+                </div>
+
+                <div class="my-3 col">
+                    <label class="form-label">Estado:</label>
+                    <input id="estado" class="form-control" type="text" name="estado">
+                </div>
+
+                <div class="my-3 col">
+                    <label class="form-label">CEP:</label>
+                    <input id="cep" class="form-control" type="text" name="cep"placeholder="00000-000">
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class=" container-fluid border bg-white shadow">
+
+            <div class="row">
+
+                <div class="my-3 col-3">
+                    <label class="form-label">Nome do Exame:</label>
+                    <input id="nome_exame" class="form-control" type="text" name="nome_exame">
+                </div>
+
+                <div class="my-3 col-3">
+                    <label class="form-label">Tipo de Exame:</label>
+                    <input id="tipo_exame" class="form-control" type="text" name="tipo_exame">
+                </div>
+
+                <div class="my-3 col">
+                    <label class="form-label">Convênio:</label>
+                    <input id="convenio" class="form-control" type="text" name="convenio">
+                </div>
+
+                <div class="my-3 col">
+                    <label class="form-label">Data do Exame:</label>
+                    <input id="data_exame" class="form-control" type="date" name="data_exame">
+                </div>
+                
+            </div>
+
+            <div class="row">
+
+                
+
+                <div class="my-3 col-3">
+                    <label class="form-label">Médico:</label>
+                    <input id="medico" class="form-control" type="text" name="medico">
+                </div>
+
+                <div class="my-3 col-6">
+                    <label class="form-label">Comentários:</label>
+                    <input id="comentario" class="form-control" type="text" name="comentario">
+                </div>
+
+                <div class="my-3 col">
+                    <label class="form-label">Data de entrega:</label>
+                    <input id="data_entrega" class="form-control" type="date" name="data_entrega">
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </form>
+
+
+        
+    <div class="print"> 
+        <div class="container-fluid border border-1 border-drak mb-5 p-4 bg-white shadow">
+    
+            <img src="./imagens/medimagem2.png" alt=""> <br>
+    
+            <div class="row">
+    
+                <h1>FICHA DO CLIENTE</h1> 
+                <h6><p>Data: <span id="dataRecebe"></span></p></h6>
+    
+                    <div class="my-3 col-6">
+                        <label class="form-label">Nome:</label>
+                        <span id="nomeRecebido" class="form-control"></span>
+                    </div>
+    
+                    <div class="my-3 col">
+                        <label id="div2" class="form-label">Data de Nascimento:</label>
+                        <span id="nascRecebido" class="form-control"></span>
+                    </div>
+    
+                    <div class="my-3 col-2">
+                        <label class="form-label">Idade:</label>
+                        <span id="idadeRecebido" class="form-control"></span>
+                    </div>
+                        
+            </div>
+    
+            <div class="row">
+    
+                <div class="my-3 col">
+                    <label id="div2" class="form-label">CPF:</label>
+                    <span id="cpfRecebido" class="form-control"></span>
+                </div>
+    
+                <div class="my-3 col-4">
+                    <label class="form-label">Telefone:</label>
+                    <span id="telRecebido" class="form-control"></span>
+                </div>
+    
+                
+                <div class="my-3 col-2">
+                    <label class="form-label"></label>
+                </div>
+                <div class="my-3 col-2">
+                    <label class="form-label"></label>
+                </div>
+    
+            </div>
+    
+            <div class="row">
+    
+                <div class="my-3 col">
+                    <label class="form-label">Endereço:</label>
+                    <span id="endRecebido" class="form-control"></span>
+                    
+                </div>
+    
+                <div class="my-3 col-2">
+                    <label class="form-label">Nº:</label>
+                    <span id="numRecebido" class="form-control"></span>
+                </div>
+    
+                <div class="my-3 col-2">
+                    <label class="form-label"></label>
+                </div>
+                <div class="my-3 col-2">
+                    <label class="form-label"></label>
+                </div>
+    
+            </div> <br><br>
+    
+            <h4></h4>
+            <h4>Exame</h4>
+    
+            <div class="row">
+    
+                <div class="my-3 col-4">
+                    <label class="form-label">Tipo de exame:</label>
+                    <span id="tipoExameRecebio" class="form-control"></span>
+                </div>
+    
+                <div class="my-3 col-4">
+                    <label class="form-label">Nome do Exame:</label>
+                    <span id="nomeExameRecebido" class="form-control"></span>
+                </div>
+    
+                <div class="my-3 col-4">
+                    <label class="form-label">Convênio:</label>
+                    <span id="convRecebido" class="form-control"></span>
+                </div>
+    
+            </div>             
+            
+        </div>
+        
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+    <script>
+        $('#cpf').mask('000.000.000-00', {reverse: true});
+        $('#rg').mask('00000000-0', {reverse: true});
+        $('#celular').mask('(00) 00000-0000');
+        $('#telefone').mask('(00) 0000-0000');
+        $('#cep').mask('00000-000');
+        $('#peso').mask('000 kg', {reverse: true});
+        $('#altura').mask('0,00 cm', {reverse: true});
+        $('#numero').mask('00.000', {reverse: true});
+       
+   </script>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+<script src="../js/print.js"></script>
+<script src="../js/Usuario_existe.js"></script>
+</html>
+
+
+
+
+
+    
