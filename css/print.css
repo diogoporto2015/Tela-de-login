@@ -1,0 +1,82 @@
+*{
+    padding: o;
+    margin: 0;
+ }
+ 
+ .print{
+    display: none;
+    margin: 10px;
+    padding: 0px;  
+ }
+
+ .print img{
+    display: flex;
+    margin: auto;
+    border-radius: 40px;
+    width: 80px;  
+ }
+
+ .print h1{
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+    text-align: center;
+    
+ }
+
+ .print h4{
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-top: -20px;
+ }
+
+ .print h6{
+    text-align: center;
+ }
+
+ @media print{
+    .print{
+        display: block;
+    }
+    .dados{
+        display: none;
+    }
+ }
+
+.container-fluid p {
+   text-align: end;
+   color: red;
+}
+
+.registro {
+   margin-top: -40px;
+   
+}
+
+#id_paciente {
+   margin-top: -50px;
+   margin-left: 120px;
+   text-align: center;
+}
+
+.data{
+   display: flex;
+}
+
+.data p {
+   margin-left: 20px;
+   
+}
+
+.registroprint{
+  margin-left: -150px;
+}
+
+.data{
+   margin-left: 130px;
+   
+}
+
+.idade{
+   margin-left: 130px;
+}

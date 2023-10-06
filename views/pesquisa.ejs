@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" conteudo="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" conteudo="ie=edge">
+    <link rel="stylesheet" href="./css/print.css">
+    <title>Pesquisa de Cliente</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+
+</head>
+<body>
+<div class="dados">
+    <nav class="navbar navbar-expand navbar-dark border border-1 border-drak  bg-primary shadow ">
+        <div class="container-fluid">
+            <div class="navbar-nav">
+                <img class="navbar-brand" src="./imagens/medimagem2.png" style="width: 50px; border-radius: 100px;">
+                <span class="navbar-text pt-3"><h5>MedImagem</h5></span>
+            </div>
+
+            <form id="search-form" class="d-flex"  action="/" method="GET">
+                <input id="campoRecebe" class="form-control m-2" type="text" name="search"  placeholder="Pesquisar...">
+                <button type="submit" class="btn btn-primary m-2" >Pesquisa</button>
+            </form>      
+
+            <ul class="navbar-nav ">
+
+                <div class="dropdown mt-3">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Agenda</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="./dessiomentria.html" class="dropdown-item">Denssiometria</a>
+                                </li>
+
+                                <li>
+                                    <hr class="dropdown-divider"/>
+                                    <a href="/mamografia.html" class="dropdown-item">Mamografia</a>
+                                </li>
+                            
+                                <li>
+                                    <hr class="dropdown-divider"/>
+                                    <a href="./medicoOrtopedia.html" class="dropdown-item">Médico Ortopedia</a>
+                                </li>
+                            
+                                <li>
+                                    <hr class="dropdown-divider"/>
+                                    <a href="./raoisx.html" class="dropdown-item">Raios X</a>
+                                </li>
+                            
+                                <li>
+                                    <hr class="dropdown-divider"/>
+                                    <a href="./ultrassonografia.html" class="dropdown-item">Ultrassonografia</a>
+                                </li>
+                            </ul>
+                    </li>
+                </div>
+
+                <div class="dropdown mt-3 m-3">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Paciente</a> 
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../ficha.html" class="dropdown-item">Cadastro</a>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider"/>
+                                <a href="" class="dropdown-item">Declaração de Comparecimento</a>
+                            </li>
+                        
+                        </ul> 
+
+                    </li>
+                </div>
+
+                <div class="dropdown mt-3 ">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Faturamento</a>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="" class="dropdown-item">Faturamento do Paciente</a>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider"/>
+                                <a href="" class="dropdown-item">Fecha Faturamento</a>
+                            </li>
+                        
+                        </ul> 
+                </div>
+
+                <div class="dropdown mt-3 m-3">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Administatrador</a>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <h2 class="dropdown-header text-center">Funcionários</h2>
+                                <a href="" class="dropdown-item">Adicionar Cadastro</a>
+                            </li>
+
+                            <li>
+                                <a href="" class="dropdown-item">Editar cadastro</a>
+                            </li>
+                        
+                            <li>
+                                <a href="" class="dropdown-item">Apagar Cadastro</a>
+                                <hr class="dropdown-divider"/>
+                            </li>
+                        
+                            <li>
+                                <h2 class="dropdown-header text-center">Usuários</h2>
+                                <a href="" class="dropdown-item">Adicionar Cadastrar</a>
+                            </li>
+                        
+                        </ul> 
+
+                    </li>
+                </div>
+
+                <div class="dropdown">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img src="./imagens/usuario.png" alt="imagem usuario" style="width: 50px" >
+                            <span class="mb-3 ms-2">Bem Vindo</span>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+
+                            <li>
+                                <a href="./index.html" class="dropdown-item">Logout</a>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider"/>
+                                <a href="" class="dropdown-item">Sair</a>
+                            </li>
+                        
+                        </ul> 
+
+                    </li>
+                </div>
+            </ul>  
+            
+        </div>
+    </nav>
+
+    <div class="pt-4"></div>
+
+    <form class="container-sm pt-3 p-5 border bg-white shadow w-75">
+
+        <div class="my-3 text-start">
+          
+
+            <button type="button" id="sair" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalSair">Novo Cadastro</button>
+
+            <div id="JanelaModalSair" class="modal fade " data-bs-backdrop="static">
+
+                <div class="modal-dialog modal-lg modal-dialog-centered ">
+
+                    <div class="modal-content">
+ 
+                        <div class="modal-header align-self-center">
+                            <h2 class="modal-title">Cadastra Novo Paciente</h2>
+                        </div>
+
+                        <div class="modal-body">
+                            <p><h3 class="text-center">CONFIRMAÇÃO</h3></p>
+                            <p class="text-center">Para realizar um novo cadastro de paciente - Confirmar.</p>
+                            <p class="text-center">Para cancelar o novo de cadastro de paciente - Fechar.</p>
+                        </div>
+
+                        <div class="modal-footer ">
+                            
+                            <a href="/ficha.html" class="btn btn-primary">Confirmar</a>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal">Fechar</button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" id="atualizar" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalAtualizar">Adicionar Exame</button>
+
+            <div id="JanelaModalAtualizar" class="modal fade " data-bs-backdrop="static">
+
+                <div class="modal-dialog modal-lg modal-dialog-centered ">
+
+                    <div class="modal-content">
+ 
+                        <div class="modal-header align-self-center">
+                            <h2 class="modal-title">Novo Exame</h2>
+                        </div>
+
+                        <div class="modal-body">
+                            <p><h4 class="text-center">PARABÉNS <br>Um novo exame foi incluído com sucesso!</h4></p>
+                            <p class="text-center">Para imprimir a ficha do paciente - Imprimir.</p>
+                            <p class="text-center">Para canlelar - Fechar.</p>
+                        </div>
+
+                        <div class="modal-footer ">
+                            <button type="button" class="btn btn-primary" >Imprimir</button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal">Fechar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="imprimirFicha()" class="btn btn-primary ms-5">Imprimir</button>
+
+        </div>
+
+        <div class="container-fluid border border-1 border-drak mb-5 p-4 bg-white shadow">
+            
+            <% if (search) { %>
+                <p>Você pesquisou por: <%= search %></p> 
+                <% if (records.length === 0) { %>
+                <p>Nenhum registro encontrado para '<%= search %>'.</p> 
+                <% } else { %>
+                  <ul>
+                    <% records.forEach(function(record) { %>
+                        
+                        <div class="registro">
+                            <i>Registro Cliente:</i>
+                        </div>
+                        <div class="my-3 col-1">
+                            <input id="id_paciente" class="form-control" type="text" name="id_paciente" value="<%= record.id_paciente %>" readonly>
+                        </div>
+                        <div class="row">
+                            <div class="my-3 col-5">
+                                <label class="form-label">Nome:</label>
+                                <input id="nome" class="form-control" type="text" name="nome" value="<%= record.nome %>" readonly>
+                            </div>
+                            
+                            <div class="my-3 col">
+                                <label class="form-label">CPF:</label>
+                                <input id="cpf" class="form-control" type="text" name="cpf" value="<%= record.cpf %>" readonly>
+                            </div>
+                            
+                            <div class="my-3 col">
+                                <label class="form-label">RG:</label>
+                                <input id="rg" class="form-control" type="text" name="rg" value="<%= record.rg %>" readonly>
+                            </div>
+                        </div>
+                          
+                        <div class="row">
+
+                            <div class="my-3 col">
+                                <label class="form-label">Email:</label>
+                                <input id="email" class="form-control" type="text" name="email" value="<%= record.email %>" readonly>
+                            </div>
+            
+                            <div class="my-3 col">
+                                <label class="form-label">Data de Nascimento:</label>
+                                <input id="data_nascimento" class="form-control" type="text" name="data_nasc" value="<%= record.data_nascimento %>" onchange="formatarData()" readonly>
+                            </div>
+                                        
+                            <div class="my-3 col">
+                                <label class="form-label">Telefone:</label>
+                                <input id="telefone" class="form-control" type="text" name="telefone" value="<%= record.telefone %>" readonly>
+                            </div>
+            
+                            <div class="my-3 col">
+                                <label class="form-label">Celular:</label>
+                                <input id="celular" class="form-control" type="text" name="celular" value="<%= record.celular %>" readonly>
+                            </div>
+            
+                        </div>
+
+                        <div class="row ">
+
+                            <div class="my-3 col-2" col>
+                                <label for="peso" class="form-label">Sexo:</label>
+                                <input id="sexo" class="form-control" type="text" name="sexo" value="<%= record.sexo %>" readonly>
+                            </div>
+            
+                            <div class="my-3 col-2" col>
+                                <label for="peso" class="form-label">Peso:</label>
+                                <input id="peso" class="form-control" type="text" name="peso" value="<%= record.peso %>" readonly>
+                            </div>
+            
+                            <div class="my-3 col-2 ms-5">
+                                <label class="form-label">Altura:</label>
+                                <input id="altura" class="form-control" type="text" name="altura" value="<%= record.altura %>" readonly>
+                            </div>
+            
+                        </div>
+                
+        </div>                
+        <div class="container-fluid border border-1 border-drak mb-5 p-4 bg-white shadow">
+            <div class="row">
+                    
+                <div class="my-3 col-5">
+                    <label class="form-label">Endereço:</label>
+                    <input id="endereco" class="form-control" type="text" name="endereco"  value="<%= record.endereco %>" readonly>
+                </div>
+
+                <div class="my-3 col-2">
+                    <label class="form-label">Nº:</label>
+                    <input id="numero" class="form-control" type="number" name="numero" value="<%= record.numero %>" readonly>
+                </div>
+
+                <div class="my-3 col">
+                    <label class="form-label">Complemento:</label>
+                    <input id="complemento" class="form-control" type="text" name="complemento" value="<%= record.complemento %>" readonly>
+                </div>
+                
+            </div>
+
+            <div class="row">
+
+                <div class="my-3 col">
+                    <label class="form-label">Bairro:</label>
+                    <input id="bairro" class="form-control" type="text" name="bairro" value="<%= record.bairro %>" readonly>
+                </div>
+
+                <div class="my-3 col">
+                    <label class="form-label">Cidade:</label>
+                    <input id="cidade" class="form-control" type="text" name="cidade" value="<%= record.cidade %>" readonly>
+                </div>
+
+                <div class="my-3 col">
+                    <label class="form-label">Estado:</label>
+                    <input id="estado" class="form-control" type="text" name="estado" value="<%= record.estado %>" readonly>
+                </div>
+
+                <div class="my-3 col">
+                    <label class="form-label">CEP:</label>
+                    <input id="cep" class="form-control" type="text" name="cep" value="<%= record.cep %>" readonly>
+                </div>
+
+            </div>
+        
+        </div>   
+        
+        <div class=" container-fluid border bg-white shadow">
+
+            <div class="row">
+
+                <div class="my-3 col-3">
+                    <label class="form-label">Nome do Exame:</label>
+                    <input id="nome_exame" class="form-control" type="text" name="nome_exame" value="<%= record.nome_exame %>" readonly> 
+                </div>
+
+                <div class="my-3 col-3">
+                    <label class="form-label">Tipo de Exame:</label>
+                    <input id="tipo_exame" class="form-control" type="text" name="tipo_exame" value="<%= record.tipo_exame %>" readonly>
+                </div>
+
+                <div class="my-3 col">
+                    <label class="form-label">Convênio:</label>
+                    <input id="convenio" class="form-control" type="text" name="convenio" value="<%= record.convenio %>" readonly>
+                </div>
+
+                <div class="my-3 col">
+                    <label class="form-label">Data do Exame:</label>
+                    <input id="data_exame" class="form-control" type="text" name="data_exame" value="<%= record.data_exame %>" readonly>
+                </div>
+                
+            </div>
+
+            <div class="row">
+
+                <div class="my-3 col-6">
+                    <label class="form-label">Comentários:</label>
+                    <input id="comentario" class="form-control" type="text" name="comentario" value="<%= record.comentario %>" readonly>
+                </div>
+
+                <div class="my-3 col">
+                    <label class="form-label">Data de entrega:</label>
+                    <input id="data_entrega" class="form-control" type="text" name="data_entrega" value="<%= record.data_entrega %>" readonly>
+                </div>
+
+            </div>
+        </div>
+                        
+        <% }); %>
+                    </ul>
+                  <% } %>
+                <% } %>        
+                
+        </div>
+
+    </form>
+</div>
+    <div class="print"> 
+        <div class="">
+    
+            <img src="./imagens/medimagem2.png" alt=""> <br>
+
+            <h1>FICHA DO CLIENTE</h1> 
+            <div class="data">
+                <div class="registroprint"><h6><p>Registro do Paciente: <span id="registroRecebe" ></span></h6></div>
+                <div class="data"><h6><p>Data: <span id="dataRecebe" ></span></p></h6></div>
+                <div class="idade"><h6><p>Idade: <span id="idadeRecebido" ></span></p></h6></div>
+            </div>
+        </div>
+            <div class="row">
+                    <div class="my-3 col-6">
+                        <label class="form-label">Nome:</label>
+                        <span id="nomeRecebido" class="form-control"></span>
+                    </div>
+
+                    <div class="my-3 col-3">
+                        <label id="div2" class="form-label">CPF:</label>
+                        <span id="cpfRecebido" class="form-control"></span>
+                    </div>
+
+                    <div class="my-3 col-3">
+                        <label class="form-label">Data de Nascimento:</label>
+                        <span id="nascRecebido" class="form-control"></span>
+                    </div>
+
+            </div>
+    
+            <div class="row">
+
+               
+
+                <div class="my-3 col-4">
+                    <label class="form-label">Sexo:</label>
+                    <span id="sexoRecebido" class="form-control"></span>
+                </div>
+
+                <div class="my-3 col-4">
+                    <label class="form-label">Celular:</label>
+                    <span id="celRecebido" class="form-control"></span>
+                </div>
+    
+                <div class="my-3 col-4">
+                    <label class="form-label">Telefone:</label>
+                    <span id="telRecebido" class="form-control"></span>
+                </div>
+    
+            </div>
+    
+            <div class="row">
+    
+                <div class="my-3 col-6">
+                    <label class="form-label">Endereço:</label>
+                    <span id="endRecebido" class="form-control"></span>
+                    
+                </div>
+    
+                <div class="my-3 col-2">
+                    <label class="form-label">Nº:</label>
+                    <span id="numRecebido" class="form-control"></span>
+                </div>
+
+                <div class="my-3 col">
+                    <label class="form-label">Bairro:</label>
+                    <span id="bairroRecebido" class="form-control"></span>
+                </div>
+
+            </div>
+
+            <div class="row">    
+
+                <div class="my-3 col-4">
+                    <label class="form-label">Cidade:</label>
+                    <span id="cidadeRecebido" class="form-control"></span>
+                </div>
+
+                <div class="my-3 col-4">
+                    <label class="form-label">Estado:</label>
+                    <span id="estadoRecebido" class="form-control"></span>
+                </div>
+
+                <div class="my-3 col-3">
+                    <label class="form-label">cep:</label>
+                    <span id="cepRecebido" class="form-control"></span>
+                </div>
+                <div class="my-3 col"></div>
+                <div class="my-3 col"></div>
+            </div> <br><br>
+    
+            <h4></h4>
+            <h4>Exame</h4>
+    
+            <div class="row">
+    
+                <div class="my-3 col-4">
+                    <label class="form-label">Nome do Exame:</label>
+                    <span id="nomeExameRecebido" class="form-control"></span>
+                </div>
+
+                <div class="my-3 col-4">
+                    <label class="form-label">Tipo de exame:</label>
+                    <span id="tipoExameRecebio" class="form-control"></span>
+                </div>
+    
+                <div class="my-3 col-4">
+                    <label class="form-label">Convênio:</label>
+                    <span id="convRecebido" class="form-control"></span>
+                </div>
+    
+            </div>   
+            
+            <div class="row">
+    
+                <div class="my-3 ">
+                    <label class="form-label">Comentários::</label>
+                    <span id="recebeComentario" class="form-control"></span>
+                </div>
+    
+            </div> 
+            
+        </div>
+        
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+    <script>
+        $('#cpf').mask('000.000.000-00', {reverse: true});
+        $('#rg').mask('00000000-0', {reverse: true});
+        $('#data_nascimento')
+        $('#celular').mask('(00) 00000-0000');
+        $('#telefone').mask('(00) 0000-0000');
+        $('#cep').mask('00000-000');
+        $('#peso').mask('000 kg', {reverse: true});
+        $('#altura').mask('0,00 cm', {reverse: true});
+        $('#numero').mask('00.000', {reverse: true});
+       
+   </script>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+<script src="./js/print.js"></script>
+<script src="./js/blockInput.js"></script>
+
+</html
+
+  

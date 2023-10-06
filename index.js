@@ -25,15 +25,14 @@ const connection = mysql.createConnection({
     host: "192.168.1.66",
     user: "diogoporto",
     password: "d@172709",
-    database: "cadastro"
+    database: "MEDIMAGEM"
 });
 connection.connect(function(error){
-    if (error) throw error
+    if (error) throw error;
     console.log("Conectado ao banco de dados com Sucesso!")
 });
 
 // Realizar o Login no banco de dados Mysql
-
 app.post("/index.html", encoder, (req, res) => {
     var nome = req.body.nome;
     var senha = req.body.senha;
@@ -67,16 +66,71 @@ app.get('/', function(req, res) {
     }
   });
 
+  // Rota para Cadastrar o formulário
+app.post('/cadastrar', (req, res) => {
+    const {nome, cpf, rg, data_nascimento, sexo, peso, altura, telefone, celular, email, endereco, numero, complemento, bairro, cidade, estado, cep, tipo_exame, nome_exame, data_exame, data_entrega, convenio, medico, comentario } = req.body;
+  
+  //Cadastro de tabela relacionada Pacientes e Exames no Mysql - inicio do código
+  // Verificar se o nome já existe na pacientes
+  const checkQuery = `SELECT nome FROM pacientes WHERE nome = ?`;
+  const checkValues = [nome];
+  
+  
+  connection.query(checkQuery, checkValues, (err, results) => {
+    if (err) {
+      console.error('Erro ao verificar nome na pacientes:', err);
+      res.status(500).send('Erro ao cadastrar');
+      return;
+    }
+  
+    // Se o nome já existir, enviar resposta JSON com mensagem de erro
+    if (results.length > 0) {
+      return res.json({ error: 'O nome já está cadastrado. Por favor, use um nome diferente.' });
+    }
+    
+    // Query para inserir os dados na primeira tabela
+    const query1 = `INSERT INTO pacientes (nome, cpf, rg, data_nascimento, sexo, peso, altura, telefone, celular, email, endereco, numero, complemento, bairro, cidade, estado, cep) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    const values1 = [nome, cpf, rg, data_nascimento, sexo, peso, altura, telefone, celular, email, endereco, numero, complemento, bairro, cidade, estado, cep];
+  
+    // Query para inserir os dados na segunda tabela usando o ID inserido na primeira tabela
+    const query2 = `INSERT INTO exames (paciente_id, tipo_exame, nome_exame, data_exame, data_entrega, convenio, medico, comentario ) VALUES (LAST_INSERT_ID(), ?, ?, ?, ?, ?, ?, ? )`;
+    const values2 = [tipo_exame, nome_exame, data_exame, data_entrega, convenio, medico, comentario ];
+  
+    // Executando as queries sequencialmente
+    connection.query(query1, values1, (err, result1) => {
+      if (err) {
+        console.error('Erro ao inserir na paciente:', err);
+        res.status(500).send('Erro ao cadastrar');
+        return;
+      }
+  
+      connection.query(query2, values2, (err, result2) => {
+        if (err) {
+          console.error('Erro ao inserir na exame:', err);
+          res.status(500).send('Erro ao cadastrar');
+          return;
+        }
+  
+        console.log('Dados cadastrados com sucesso!');
+        // Redirecionar para a página de sucesso após o cadastro ser concluído com êxito
+        res.render("ficha")
+      });
+    });
+  });
+  });
+  //Cadastro de tabela relacionada Pacientes e exames no Mysql - fim do código
+
+
 
 // carregar a pagina
+
+app.get('/ficha', (req, res) =>{
+    res.render("ficha")
+})
 
 app.get ("/index.html", function(req, res) {
     res.sendFile(__dirname + "/index.html");
 });
-
-app.get("/ficha.html", function (req, res){
-    res.sendFile(__dirname + "/ficha.html");
-})
 
 app.get ("/dessiomentria.html", function(req, res) {
     res.sendFile(__dirname + "/dessiomentria.html");
