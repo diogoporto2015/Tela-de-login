@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excluir Usuário e Pedidos</title>
+</head>
+<body>
+    <h1>Excluir Usuário e Pedidos</h1>
+    <p>Informe o ID do usuário que deseja excluir:</p>
+    <input type="number" id="userId" placeholder="ID do Usuário">
+    <button onclick="excluirUsuarioEPedidos()">Excluir</button>
+    <p id="mensagem"></p>
+
+    <script>
+        function excluirUsuarioEPedidos() {
+            const userId = document.getElementById('userId').value;
+
+            fetch(`/api/usuarios/${userId}`, {
+                method: 'DELETE'
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('mensagem').textContent = 'Usuário e pedidos apagados com sucesso';
+                } else {
+                    document.getElementById('mensagem').textContent = 'Erro ao apagar usuário e pedidos';
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao excluir usuário e pedidos:', error);
+                document.getElementById('mensagem').textContent = 'Erro ao excluir usuário e pedidos';
+            });
+        }
+    </script>
+</body>
+</html>

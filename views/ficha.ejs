@@ -17,13 +17,10 @@
                 <img class="navbar-brand" src="./imagens/medimagem2.png" style="width: 50px; border-radius: 100px;">
                 <span class="navbar-text pt-3"><h5>MedImagem</h5></span>
             </div>
-
             <form class="d-flex">
                 <a href="/" class="btn btn-primary"> Pesquisa</a> 
             </form>                
-
             <ul class="navbar-nav ">
-
                 <div class="dropdown mt-3">
                     <li class="nav-item">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Agenda</a>
@@ -144,19 +141,15 @@
                     </li>
                 </div>
             </ul>  
-            
         </div>
     </nav>
 
     <div class="pt-4"></div>
-
     <form class="container-sm pt-3 p-5 border bg-white shadow w-75" id="cadastroForm" action="/cadastrar" method="POST">
-
         <div class="my-3 text-start">
             <button type="reset" class="btn btn-primary ms-5">Limpar dados</button>
             
-            <button type="submit" id="//cadastrar" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalCadastro">Cadastrar</button>
-
+            <button type="submit" id="/cadastrar" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalCadastro">Cadastrar</button>
             <div id="JanelaModalCadastro" name="JanelaModalCadastro" class="modal fade " data-bs-backdrop="static">
 
                 <div class="modal-dialog modal-lg modal-dialog-centered ">
@@ -181,8 +174,7 @@
                 </div>
             </div>
 
-            <button type="button" id="atualizar" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalAtualizar">Atualizar</button>
-
+            <button type="button" id="/atualizar" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalAtualizar">Atualizar</button>
             <div id="JanelaModalAtualizar" class="modal fade " data-bs-backdrop="static">
 
                 <div class="modal-dialog modal-lg modal-dialog-centered ">
@@ -207,8 +199,31 @@
                 </div>
             </div>
 
-            <button type="button" id="imprimir" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalImprimir">Imprimir</button>
+            <button type="submit" id="/deletar" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalDeletar">Deletar</button>
+            <div id="JanelaModalDeletar" name="JanelaModalDeletar" class="modal fade " data-bs-backdrop="static">
 
+                <div class="modal-dialog modal-lg modal-dialog-centered ">
+
+                    <div class="modal-content">
+ 
+                        <div class="modal-header align-self-center">
+                            <h2 class="modal-title">Apagar Ficha do Paciente</h2>
+                        </div>
+
+                        <div class="modal-body">
+                            <p><h3 class="text-center">ATENÇÂO</h3></p>
+                            <p class="text-center">Realmente Deseja Apaga o Registro do Paciente!</p>
+                        </div>
+
+                        <div class="modal-footer ">
+                            <button type="button" class="btn btn-primary" >OK</button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" id="imprimir" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalImprimir">Imprimir</button>
             <div id="JanelaModalImprimir" class="modal fade " data-bs-backdrop="static">
 
                 <div class="modal-dialog modal-lg modal-dialog-centered ">
@@ -237,7 +252,6 @@
         <div class="container-fluid border border-1 border-drak mb-5 p-4 bg-white shadow">
             
             <div class="row">
-
                 <div class="my-3 col-5">
                     <label class="form-label">Nome:</label>
                     <input id="nome" class="form-control" type="text" name="nome" required>
