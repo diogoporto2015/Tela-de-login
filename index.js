@@ -65,9 +65,10 @@ app.get('/', function(req, res) {
     }
 });
 
-// Rota para Cadastrar o formulário
+// Cadastrar registro da tabela  do banco de dados Mysql
 app.post('/cadastrar', (req, res) => {
-    const {nome, cpf, rg, data_nascimento, sexo, peso, altura, telefone, celular, email, endereco, numero, complemento, bairro, cidade, estado, cep, tipo_exame, nome_exame, data_exame, data_entrega, convenio, medico, comentario } = req.body;
+    const cadastro = req.body;
+    const {nome, cpf, rg, data_nascimento, sexo, peso, altura, telefone, celular, email, endereco, numero, complemento, bairro, cidade, estado, cep, tipo_exame, nome_exame, data_exame, data_entrega, convenio, medico, comentario } = cadastro;
   
 //Cadastro de tabela relacionada Pacientes e Exames no Mysql - inicio do código
 // Verificar se o nome já existe na pacientes
@@ -98,14 +99,14 @@ const checkValues = [nome];
     // Executando as queries sequencialmente
     connection.query(query1, values1, (err, result1) => {
       if (err) {
-        console.error('Erro ao inserir na paciente:', err);
+        console.error('Erro ao inserir na tabela Paciente:', err);
         res.status(500).send('Erro ao cadastrar');
         return;
       }
   
       connection.query(query2, values2, (err, result2) => {
         if (err) {
-          console.error('Erro ao inserir na exame:', err);
+          console.error('Erro ao inserir na tabela Exame:', err);
           res.status(500).send('Erro ao cadastrar');
           return;
         }
@@ -121,61 +122,66 @@ const checkValues = [nome];
 
 
 // Rota para apagar um registro por ID
-app.delete('/api/usuarios/:id', (req, res) => {
-    const userId = req.params.id;
-  
-    connection.beginTransaction((transactionError) => {
-      if (transactionError) {
-        console.error('Erro ao iniciar a transação:', transactionError);
-        return res.status(500).json({ error: 'Erro ao iniciar a transação' });
-      }
-  
-      // Consulta SQL para apagar todos os exames relacionados ao paciente
-      const deletePedidosSQL = 'DELETE FROM exames WHERE paciente_id = ?';
+app.delete('/api/pacientes/:id', (req, res) => {
+  const pacienteId = req.params.id;
 
-      // Consulta SQL para apagar o Paciente
-      const deleteUserSQL = 'DELETE FROM pacientes WHERE id_paciente = ? ' ;
-  
-      connection.query(deletePedidosSQL, [userId], (deletePedidosError, deletePedidosResults) => {
-        if (deletePedidosError) {
-          console.error('Erro ao apagar pedidos:', deletePedidosError);
+   // Verificar se o paciente com o ID existe
+   const sql = 'SELECT * FROM pacientes WHERE id_paciente = ?';
+
+   connection.query(sql, [pacienteId], (err, results) => {
+    if (err) {
+      console.error('Erro ao verificar o paciente:', err);
+      return res.status(500).json({ error: 'Erro ao verificar o paciente' });
+    }
+
+    if (results.length === 0) {
+      // Paciente não encontrado, retornar um status 404
+      return res.status(404).json({ error: 'Paciente não encontrado' });
+    }
+
+    // O paciente foi encontrado, podemos continuar com a exclusão dos exames
+    const deleteExamesSQL = 'DELETE FROM exames WHERE paciente_id = ?';
+    connection.query(deleteExamesSQL, [pacienteId], (deleteExamesError, deleteExamesResults) => {
+      if (deleteExamesError) {
+        console.error('Erro ao apagar os exames:', deleteExamesError);
+        return res.status(500).json({ error: 'Erro ao apagar os exames' });
+      }
+
+    // Consulta SQL para excluir o paciente
+    const deletePacienteSQL = 'DELETE FROM pacientes WHERE id_paciente = ?';
+
+      connection.query(deletePacienteSQL, [pacienteId], (deletePacienteError, deletePacienteResults) => {
+        if (deletePacienteError) {
+          console.error('Erro ao apagar o paciente:', deletePacienteError);
           connection.rollback(() => {
-            console.error('Transação revertida devido a erro ao apagar pedidos.');
-            res.status(500).json({ error: 'Erro ao apagar pedidos' });
+            console.error('Transação revertida devido a erro ao apagar o paciente.');
+            res.status(500).json({ error: 'Erro ao apagar o paciente' });
           });
           return;
         }
-  
-        connection.query(deleteUserSQL, [userId], (deleteUserError, deleteUserResults) => {
-          if (deleteUserError) {
-            console.error('Erro ao apagar o usuário:', deleteUserError);
+
+        connection.commit((commitError) => {
+          if (commitError) {
+            console.error('Erro ao confirmar a transação:', commitError);
             connection.rollback(() => {
-              console.error('Transação revertida devido a erro ao apagar o usuário.');
-              res.status(500).json({ error: 'Erro ao apagar o usuário' });
+              console.error('Transação revertida devido a erro ao confirmar.');
+              res.status(500).json({ error: 'Erro ao confirmar a transação' });
             });
             return;
           }
-  
-          connection.commit((commitError) => {
-            if (commitError) {
-              console.error('Erro ao confirmar a transação:', commitError);
-              connection.rollback(() => {
-                console.error('Transação revertida devido a erro ao confirmar.');
-                res.status(500).json({ error: 'Erro ao confirmar a transação' });
-              });
-              return;
-            }
-  
-            console.log('Usuário e pedidos apagados com sucesso.');
-            res.status(200).json({ message: 'Usuário e pedidos apagados com sucesso' });
-          });
+
+          console.log('Paciente e exames apagados com sucesso.');
+          res.status(200).json({ message: 'Paciente e exames apagados com sucesso' });
         });
       });
     });
-  });  
+  });
+});
+
 
 
 // carregar a pagina
+
 
 app.get ("/teste.html", function(req, res) {
     res.sendFile(__dirname + "/teste.html");

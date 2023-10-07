@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/print.css">
     <title>Ficha do Cliente</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <script src="./js/cadastrar.js"></script>
     
 </head>
 <body>
@@ -145,11 +146,11 @@
     </nav>
 
     <div class="pt-4"></div>
-    <form class="container-sm pt-3 p-5 border bg-white shadow w-75" id="cadastroForm" action="/cadastrar" method="POST">
+    <form class="container-sm pt-3 p-5 border bg-white shadow w-75" id="meuFormulario" action="/cadastrar" method="POST">
         <div class="my-3 text-start">
             <button type="reset" class="btn btn-primary ms-5">Limpar dados</button>
             
-            <button type="submit" id="/cadastrar" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalCadastro">Cadastrar</button>
+            <button type="button"  class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalCadastro">Cadastrar</button>
             <div id="JanelaModalCadastro" name="JanelaModalCadastro" class="modal fade " data-bs-backdrop="static">
 
                 <div class="modal-dialog modal-lg modal-dialog-centered ">
@@ -167,7 +168,8 @@
                         </div>
 
                         <div class="modal-footer ">
-                            <button type="button" class="btn btn-primary" >Imprimir</button>
+                            <button type="button" id="meuBotao"  class="btn btn-primary" data-bs-toggle="modal">OK</button>
+                            <button type="button" class="btn btn-primary" id="">Imprimir</button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal">Fechar</button>
                         </div>
                     </div>
@@ -199,7 +201,7 @@
                 </div>
             </div>
 
-            <button type="submit" id="/deletar" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalDeletar">Deletar</button>
+            <button type="button" id="/deletar" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalDeletar">Deletar</button>
             <div id="JanelaModalDeletar" name="JanelaModalDeletar" class="modal fade " data-bs-backdrop="static">
 
                 <div class="modal-dialog modal-lg modal-dialog-centered ">
@@ -216,7 +218,7 @@
                         </div>
 
                         <div class="modal-footer ">
-                            <button type="button" class="btn btn-primary" >OK</button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal">OK</button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal">Fechar</button>
                         </div>
                     </div>
@@ -528,6 +530,14 @@
         $('#numero').mask('00.000', {reverse: true});
        
    </script>
+
+<script>
+    document.getElementById('meuBotao').addEventListener('click', function() {
+        // Aqui você pode adicionar validações ou manipular os dados do formulário, se necessário
+        // Em seguida, submeta o formulário
+        document.getElementById('meuFormulario').submit();
+    });
+</script>
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
