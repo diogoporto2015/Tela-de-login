@@ -1,6 +1,6 @@
 //Função para informar odados para imprimir o documento
 function imprimirFicha(){
-    document.getElementById('registroRecebe').innerHTML = document.getElementById('id_paciente').value;
+    document.getElementById('registroRecebe').innerHTML = document.getElementById('pacienteId').value;
     document.getElementById('idadeRecebido').innerHTML = calcularIdade(); 
     document.getElementById('dataRecebe').innerHTML = dataAt();
     document.getElementById('nomeRecebido').innerHTML = document.getElementById('nome').value;

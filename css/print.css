@@ -44,7 +44,7 @@
  }
 
 .container-fluid p {
-   text-align: end;
+   text-align: center;
    color: red;
 }
 
@@ -53,10 +53,11 @@
    
 }
 
-#id_paciente {
-   margin-top: -50px;
+#pacienteId {
+   margin-top: -30px;
    margin-left: 120px;
    text-align: center;
+   color: red;
 }
 
 .data{

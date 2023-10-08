@@ -18,9 +18,13 @@
                 <img class="navbar-brand" src="./imagens/medimagem2.png" style="width: 50px; border-radius: 100px;">
                 <span class="navbar-text pt-3"><h5>MedImagem</h5></span>
             </div>
-            <form class="d-flex">
-                <a href="/" class="btn btn-primary"> Pesquisa</a> 
-            </form>                
+                       
+            
+            <form id="search-form" class="d-flex"  action="/" method="GET">
+                <input id="campoRecebe" class="form-control m-2" type="text" name="search"  placeholder="Pesquisar...">
+                <button type="submit" class="btn btn-primary m-2" >Pesquisa</button>
+            </form> 
+            
             <ul class="navbar-nav ">
                 <div class="dropdown mt-3">
                     <li class="nav-item">
@@ -160,17 +164,18 @@
                         <div class="modal-header align-self-center">
                             <h2 class="modal-title">Cadastro da Ficha do Paciente</h2>
                         </div>
+                       
 
                         <div class="modal-body">
-                            <p><h3 class="text-center">PARABÉNS</h3></p>
-                            <p class="text-center">Cadastro realizado com sucesso!</p>
-                            <p class="text-center">Para imprimir a ficha do paciente clique em imprimir.</p>
+                            <p><h3 class="text-center">CADASTRO</h3></p>
+                            <p class="text-center">Deseja Cadastrar a Ficha do Paciente!</p>
+                            <p class="text-center">Para Imprimir a Ficha do Paciente clique em imprimir.</p>
                         </div>
-
+                        
                         <div class="modal-footer ">
-                            <button type="button" id="meuBotao"  class="btn btn-primary" data-bs-toggle="modal">OK</button>
+                            <button type="button" id="meuBotao"  class="btn btn-primary"  onclick="imprimirFicha()">OK</button>
                             <button type="button" class="btn btn-primary" id="">Imprimir</button>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal">Fechar</button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal">Cancelar</button>
                         </div>
                     </div>
                 </div>
@@ -195,30 +200,6 @@
 
                         <div class="modal-footer ">
                             <button type="button" class="btn btn-primary" >Imprimir</button>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal">Fechar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <button type="button" id="/deletar" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalDeletar">Deletar</button>
-            <div id="JanelaModalDeletar" name="JanelaModalDeletar" class="modal fade " data-bs-backdrop="static">
-
-                <div class="modal-dialog modal-lg modal-dialog-centered ">
-
-                    <div class="modal-content">
- 
-                        <div class="modal-header align-self-center">
-                            <h2 class="modal-title">Apagar Ficha do Paciente</h2>
-                        </div>
-
-                        <div class="modal-body">
-                            <p><h3 class="text-center">ATENÇÂO</h3></p>
-                            <p class="text-center">Realmente Deseja Apaga o Registro do Paciente!</p>
-                        </div>
-
-                        <div class="modal-footer ">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal">OK</button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal">Fechar</button>
                         </div>
                     </div>
@@ -261,7 +242,7 @@
 
                 <div class="my-3 col">
                     <label id="div2" class="form-label">CPF:</label>
-                    <input id="cpf" class="form-control" type="text" name="cpf" placeholder="000.000.000-00">
+                    <input id="cpf" class="form-control" type="text" name="cpf" placeholder="000.000.000-00" required>
                 </div>
 
                 <div class="my-3 col">
@@ -280,7 +261,7 @@
 
                 <div class="my-3 col">
                     <label class="form-label">Data de Nascimento:</label>
-                    <input id="data_nascimento" class="form-control" type="date" name="data_nascimento" >
+                    <input id="data_nascimento" class="form-control" type="date" name="data_nascimento" required>
                 </div>
 
                 <div class="my-3 col">

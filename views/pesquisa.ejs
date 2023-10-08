@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./css/print.css">
     <title>Pesquisa de Cliente</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-
+    <script src="../js/deletar.js"></script>
 
 </head>
 <body>
@@ -63,7 +63,7 @@
 
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="../ficha.html" class="dropdown-item">Cadastro</a>
+                                <a href="../ficha" class="dropdown-item">Cadastro</a>
                             </li>
 
                             <li>
@@ -157,7 +157,6 @@
           
 
             <button type="button" id="sair" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalSair">Novo Cadastro</button>
-
             <div id="JanelaModalSair" class="modal fade " data-bs-backdrop="static">
 
                 <div class="modal-dialog modal-lg modal-dialog-centered ">
@@ -170,13 +169,12 @@
 
                         <div class="modal-body">
                             <p><h3 class="text-center">CONFIRMAÇÃO</h3></p>
-                            <p class="text-center">Para realizar um novo cadastro de paciente - Confirmar.</p>
-                            <p class="text-center">Para cancelar o novo de cadastro de paciente - Fechar.</p>
+                            <p class="text-center">Deseja Realizar um Novo Cadastro!</p>
                         </div>
 
                         <div class="modal-footer ">
                             
-                            <a href="/ficha.html" class="btn btn-primary">Confirmar</a>
+                            <a href="../ficha" class="btn btn-primary">Confirmar</a>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal">Fechar</button>
                             
                         </div>
@@ -185,7 +183,6 @@
             </div>
 
             <button type="button" id="atualizar" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalAtualizar">Adicionar Exame</button>
-
             <div id="JanelaModalAtualizar" class="modal fade " data-bs-backdrop="static">
 
                 <div class="modal-dialog modal-lg modal-dialog-centered ">
@@ -213,6 +210,30 @@
 
             <button onclick="imprimirFicha()" class="btn btn-primary ms-5">Imprimir</button>
 
+            <button type="button" id="/deletar" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalDeletar">Deletar</button>
+            <div id="JanelaModalDeletar" name="JanelaModalDeletar" class="modal fade " data-bs-backdrop="static">
+
+                <div class="modal-dialog modal-lg modal-dialog-centered ">
+
+                    <div class="modal-content">
+ 
+                        <div class="modal-header align-self-center">
+                            <h2 class="modal-title">Apagar Ficha do Paciente</h2>
+                        </div>
+
+                        <div class="modal-body">
+                            <p><h3 class="text-center">ATENÇÂO</h3></p>
+                            <p class="text-center">Realmente Deseja Apaga o Registro do Paciente!</p>
+                        </div>
+
+                        <div class="modal-footer ">
+                            <button type="button" onclick="excluirExames()" class="btn btn-primary" data-bs-toggle="modal">OK</button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <div class="container-fluid border border-1 border-drak mb-5 p-4 bg-white shadow">
@@ -224,12 +245,12 @@
                 <% } else { %>
                   <ul>
                     <% records.forEach(function(record) { %>
-                        
+                        <span id="mensagem" ></span>
                         <div class="registro">
                             <i>Registro Cliente:</i>
                         </div>
-                        <div class="my-3 col-1">
-                            <input id="id_paciente" class="form-control" type="text" name="id_paciente" value="<%= record.id_paciente %>" readonly>
+                        <div class="my- col-1">
+                            <input id="pacienteId" class="form-control" name="id_paciente" value="<%= record.id_paciente %>" readonly> 
                         </div>
                         <div class="row">
                             <div class="my-3 col-5">
