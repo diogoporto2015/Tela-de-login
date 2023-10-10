@@ -152,7 +152,7 @@
     </nav>
 
     <div class="pt-4"></div>
-    <form class="container-sm pt-3 p-5 border bg-white shadow w-75" id="meuFormulario" action="/cadastrar" method="POST">
+    <form class="container-sm pt-3 p-5 border bg-white shadow w-75 needs-validation" id="meuFormulario" action="/cadastrar" method="POST" novalidate>
         <div class="my-3 text-start">
             <button type="reset" class="btn btn-primary ms-5">Limpar dados</button>
             
@@ -175,7 +175,7 @@
                         </div>
                         
                         <div class="modal-footer ">
-                            <button type="button" id="meuBotao"  class="btn btn-primary" data-bs-toggle="modal">OK</button>
+                            <button type="button" id="meuBotao"  class="btn btn-primary">OK</button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal">Cancelar</button>
                         </div>
                     </div>
@@ -238,9 +238,16 @@
         <div class="container-fluid border border-1 border-drak mb-5 p-4 bg-white shadow">
             
             <div class="row">
+                <span id></span>
                 <div class="my-3 col-5">
                     <label class="form-label">Nome:</label>
                     <input id="nome" class="form-control" type="text" name="nome" required>
+                    <div class="invalid-feedback">
+                        Você de informar o Endereço!
+                    </div>
+                    <div class="valid-feedback">
+                        Endereço informado Corretamente!
+                    </div>
                 </div>
 
                 <div class="my-3 col">

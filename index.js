@@ -67,7 +67,7 @@ connection.query(checkQuery, checkValues, (err, results) => {
 
   // Se o nome já existir, enviar resposta JSON com mensagem de erro
   if (results.length > 0) {
-    return res.json({ error: 'O nome já está cadastrado. Por favor, use um nome diferente.' });
+    return res.status(404).json({ error: 'O nome já está cadastrado. Por favor, use um nome diferente.' });
   }
   
   // Query para inserir os dados na primeira tabela
