@@ -48,8 +48,14 @@
    color: red;
 }
 
+.mensagem {
+   margin-left: 100px;
+   text-align: start;
+   color: red;
+}
+
 .registro {
-   margin-top: -40px;
+   margin-top: -0px;
    
 }
 

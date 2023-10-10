@@ -6,15 +6,15 @@ function excluirExames() {
     })
     .then(response => {
         if (response.ok) {
-            document.getElementById('mensagem').textContent = 'Exames excluídos com sucesso.';
+            document.getElementById('mensagemDeletar').textContent = 'Paciente excluídos com sucesso.';
         } else if (response.status === 404) {
-            document.getElementById('mensagem').textContent = 'ID do paciente não encontrado.';
+            document.getElementById('mensagemDeletar').textContent = 'ID do paciente não encontrado.';
         } else {
-            document.getElementById('mensagem').textContent = 'Erro ao excluir os exames.';
+            document.getElementById('mensagemDeletar').textContent = 'Erro ao excluir os Paciente.';
         }
     })
     .catch(error => {
         console.error('Erro ao excluir os exames:', error);
-        document.getElementById('mensagem').textContent = 'Erro ao excluir os exames.';
+        document.getElementById('mensagemDeletar').textContent = 'Erro ao excluir os Paciente.';
     });
 }

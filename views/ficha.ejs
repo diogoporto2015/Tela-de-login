@@ -175,7 +175,7 @@
                         </div>
                         
                         <div class="modal-footer ">
-                            <button type="submit" id="meuBotao"  class="btn btn-primary"  >OK</button>
+                            <button type="button" id="meuBotao"  class="btn btn-primary" data-bs-toggle="modal">OK</button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal">Cancelar</button>
                         </div>
                     </div>
@@ -207,7 +207,7 @@
                 </div>
             </div>
 
-            <button type="button" id="imprimir" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalImprimir">Imprimir</button>
+            <button type="button" id="imprimir" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalImprimir">Imprimir1</button>
             <div id="JanelaModalImprimir" class="modal fade " data-bs-backdrop="static">
 
                 <div class="modal-dialog modal-lg modal-dialog-centered ">
@@ -230,6 +230,8 @@
                     </div>
                 </div>
             </div>
+
+            <button onclick="imprimirFicha()" class="btn btn-primary ms-5">Imprimir</button>
 
         </div>
 

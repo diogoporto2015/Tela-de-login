@@ -79,15 +79,15 @@ connection.query(checkQuery, checkValues, (err, results) => {
   const values2 = [tipo_exame, nome_exame, data_exame, data_entrega, convenio, medico, comentario ];
 
   // Executando as queries sequencialmente
-  connection.query(query1, values1, (err, result1) => {
+  connection.query(query1, values1,(err, result1) => {
     if (err) {
       console.error('Erro ao inserir na tabela Paciente:', err);
       console.log('Erro ao cadastrar na Tabela Pacientes');
-      res.render("ficha")
+      
       return;
     }
-
-    connection.query(query2, values2, (err, result2) => {
+    
+    connection.query(query2, values2,(err, result2) => {
       if (err) {
         console.error('Erro ao inserir na tabela Exame:', err);
         res.status(500).send('Erro ao cadastrar 2');

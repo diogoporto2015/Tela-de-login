@@ -238,16 +238,17 @@
 
         <div class="container-fluid border border-1 border-drak mb-5 p-4 bg-white shadow">
             
-            <% if (search) { %>
-                <p>Você pesquisou por: <%= search %></p> 
+            <% if (search) { %> 
                 <% if (records.length === 0) { %>
+                <p>Você pesquisou por: <%= search %></p>
                 <p>Nenhum registro encontrado para '<%= search %>'.</p> 
                 <% } else { %>
                   <ul>
                     <% records.forEach(function(record) { %>
-                        <span id="mensagem" ></span>
+                        
                         <div class="registro">
                             <i>Registro Cliente:</i>
+                            <span class="mensagem" id="mensagemDeletar" ></span>
                         </div>
                         <div class="my- col-1">
                             <input id="pacienteId" class="form-control" name="id_paciente" value="<%= record.id_paciente %>" readonly> 
