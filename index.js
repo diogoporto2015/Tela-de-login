@@ -39,7 +39,7 @@ app.post("/index.html", encoder, (req, res) => {
 
     connection.query("select * from usuarios where nome = ? and senha = ?", [nome, senha], (error, results, fields) => {
         if(results.length > 0){
-            res.redirect("/ficha.html");
+          res.render("ficha")
         }else {
             res.redirect("/index.html");
         }
