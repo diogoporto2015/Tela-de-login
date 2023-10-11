@@ -175,13 +175,13 @@
                         </div>
                         
                         <div class="modal-footer ">
-                            <button type="button" id="meuBotao"  class="btn btn-primary">OK</button>
+                            <button onclick="cadastrarPaciente()"  class="btn btn-primary" data-bs-toggle="modal">OK</button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal">Cancelar</button>
                         </div>
                     </div>
                 </div>
             </div>
-
+        
             <button type="button" id="/atualizar" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalAtualizar">Atualizar</button>
             <div id="JanelaModalAtualizar" class="modal fade " data-bs-backdrop="static">
 
@@ -233,12 +233,13 @@
 
             <button onclick="imprimirFicha()" class="btn btn-primary ms-5">Imprimir</button>
 
+            
         </div>
 
         <div class="container-fluid border border-1 border-drak mb-5 p-4 bg-white shadow">
             
             <div class="row">
-                <span id></span>
+                <span class="resultado" id="resultado"></span>
                 <div class="my-3 col-5">
                     <label class="form-label">Nome:</label>
                     <input id="nome" class="form-control" type="text" name="nome" required>
@@ -271,7 +272,7 @@
 
                 <div class="my-3 col">
                     <label class="form-label">Data de Nascimento:</label>
-                    <input id="data_nascimento" class="form-control" type="date" name="data_nascimento">
+                    <input id="data_nascimento" class="form-control" type="date" name="data_nascimento" required>
                 </div>
 
                 <div class="my-3 col">
@@ -523,10 +524,28 @@
    </script>
 
 <script>
-    document.getElementById('meuBotao').addEventListener('click', function() {
-        // Aqui você pode adicionar validações ou manipular os dados do formulário, se necessário
-        // Em seguida, submeta o formulário
-        document.getElementById('meuFormulario').submit();
+    const postForm = document.getElementById('meuFormulario');
+    const responseContainer = document.getElementById('resultado');
+
+    postForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(postForm);
+
+        fetch('/cadastrar', {
+            method: 'POST',
+            body: JSON.stringify(Object.fromEntries(formData)),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            responseContainer.innerHTML = ` ${JSON.stringify(data.error)}`;
+        })
+        .catch(error => {
+            console.error('Erro na solicitação à API:', error);
+        });
     });
 </script>
 </body>
