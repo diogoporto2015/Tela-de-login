@@ -208,7 +208,7 @@
                 </div>
             </div>
 
-            <button onclick="imprimirFicha()" class="btn btn-primary ms-5">Imprimir</button>
+            <button onclick="imprimirFichaPesquisa()" class="btn btn-primary ms-5">Imprimir</button>
 
             <button type="button" id="/deletar" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalDeletar">Deletar</button>
             <div id="JanelaModalDeletar" name="JanelaModalDeletar" class="modal fade " data-bs-backdrop="static">
@@ -279,7 +279,7 @@
             
                             <div class="my-3 col">
                                 <label class="form-label">Data de Nascimento:</label>
-                                <input id="data_nascimento" class="form-control" type="text" name="data_nasc" value="<%= record.data_nascimento %>" onchange="formatarData()" readonly>
+                                <input id="data_nascimento" class="form-control" type="text" name="data_nasc" value="<%= record.data_nascimento %>"  readonly>
                             </div>
                                         
                             <div class="my-3 col">
@@ -556,7 +556,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
 <script src="./js/print.js"></script>
-<script src="./js/blockInput.js"></script>
+
 
 </html
 

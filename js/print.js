@@ -1,5 +1,6 @@
-//Função para informar odados para imprimir o documento
-function imprimirFicha(){
+
+//Função para informar dados para imprimir o documento de pesquisa
+function imprimirFichaPesquisa(){
     document.getElementById('registroRecebe').innerHTML = document.getElementById('pacienteId').value;
     document.getElementById('idadeRecebido').innerHTML = calcularIdade(); 
     document.getElementById('dataRecebe').innerHTML = dataAt();
@@ -65,51 +66,3 @@ function calcularIdade() {
     
     return resultadoFinal =  `${idade}  anos`
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
- // Função para calcular a idade
-function calcIdade(){
-
-    var dataAtual = new Date()
-    var dataNascimento = new Date(document.getElementById('data_nascimento').value)
-    
-    
-
-    //Subtração dos anos
-    var anos = dataAtual.getFullYear() - dataNascimento.getFullYear()
-
-    //Análise dos meses
-    if(dataAtual.getMonth() != dataNascimento.getMonth()){
-
-        //Verificar a diferença nos meses
-        if(dataAtual.getMonth() < dataNascimento.getMonth()){
-            anos--;
-        }
-    }
-    else{
-        //Análise do dia do mês 
-        if(dataAtual.getDate() < dataNascimento.get()){
-            anos--;
-        }
-    }
-
-    let resultadoFinal = ``
-    
-    return resultadoFinal =  `${anos}  anos`
-    
-}
-*/
-

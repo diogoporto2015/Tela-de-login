@@ -124,7 +124,7 @@ app.get('/', function(req, res) {
 });
 
 
-// Rota para apagar um registro por ID
+// Deletar um registro por ID
 app.delete('/api/pacientes/:id', (req, res) => {
   const pacienteId = req.params.id;
 
