@@ -49,7 +49,6 @@
 }
 
 .mensagem {
-   margin-left: 100px;
    text-align: start;
    color: red;
 }
@@ -58,15 +57,7 @@
    color: red;
 }
 
-.registro {
-   margin-top: -0px;
-   
-}
-
 #pacienteId {
-   margin-top: -30px;
-   margin-left: 120px;
-   text-align: center;
    color: red;
 }
 

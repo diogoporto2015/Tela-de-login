@@ -149,9 +149,9 @@
         </div>
     </nav>
 
-    <div class="pt-4"></div>
+    <div class="pt-2"></div>
 
-    <form class="container pt-1 p-5 border bg-white shadow w-75 me-5">
+    <form class="container border bg-white shadow pb-4">
 
         <div class="my-3 text-start">
           
@@ -235,129 +235,120 @@
 
         </div>
 
-        <div class="container-fluid border border-1 border-drak mb-5 p-4 bg-white shadow">
+        <div class="container-fluid border border-1 border-drak mb-2  bg-white shadow">
             
             <% if (search) { %> 
                 <% if (records.length === 0) { %>
-                <p>Você pesquisou por: <%= search %></p>
-                <p>Nenhum registro encontrado para '<%= search %>'.</p> 
+                <p>Você pesquisou por: <%= search %>,</p>
+                <p>E NENHUM REGISTRO FOI ENCONTRADO!</p> 
                 <% } else { %>
                   <ul>
                     <% records.forEach(function(record) { %>
-                        
-                        <div class="registro">
-                            <i>Registro Cliente:</i>
-                            <span class="mensagem" id="mensagemDeletar" ></span>
-                        </div>
-                        <div class="my- col-1">
-                            <input id="pacienteId" class="form-control" name="id_paciente" value="<%= record.id_paciente %>" readonly> 
-                        </div>
+                         
                         <div class="row">
-                            <div class="my-3 col-5">
+                            <span class="mensagem" id="mensagemDeletar" ></span>
+
+                            <div class="my-2 col-1">
+                                <label class="form-label">Reg:</label>
+                                <input id="pacienteId" class="form-control " type="text" name="id_paciente" value="<%= record.id_paciente %>" readonly>
+                            </div>
+
+                            <div class="my-2 col-5">
                                 <label class="form-label">Nome:</label>
                                 <input id="nome" class="form-control" type="text" name="nome" value="<%= record.nome %>" readonly>
                             </div>
                             
-                            <div class="my-3 col">
+                            <div class="my-2 col-2">
                                 <label class="form-label">CPF:</label>
                                 <input id="cpf" class="form-control" type="text" name="cpf" value="<%= record.cpf %>" readonly>
                             </div>
                             
-                            <div class="my-3 col">
+                            <div class="my-2 col-2">
                                 <label class="form-label">RG:</label>
                                 <input id="rg" class="form-control" type="text" name="rg" value="<%= record.rg %>" readonly>
                             </div>
+
+                            <div class="my-2 col-2">
+                                <label class="form-label">Data de Nascimento:</label>
+                                <input id="data_nascimento" class="form-control" type="text" name="data_nasc" value="<%= record.data_nascimento %>"  readonly>
+                            </div>
+
+
                         </div>
                           
                         <div class="row">
 
-                            <div class="my-3 col">
+                            <div class=" col-1" col>
+                                <label for="peso" class="form-label">Sexo:</label>
+                                <input id="sexo" class="form-control" type="text" name="sexo" value="<%= record.sexo %>" readonly>
+                            </div>
+
+                            <div class=" col-3">
                                 <label class="form-label">Email:</label>
                                 <input id="email" class="form-control" type="text" name="email" value="<%= record.email %>" readonly>
                             </div>
-            
-                            <div class="my-3 col">
-                                <label class="form-label">Data de Nascimento:</label>
-                                <input id="data_nascimento" class="form-control" type="text" name="data_nasc" value="<%= record.data_nascimento %>"  readonly>
-                            </div>
-                                        
-                            <div class="my-3 col">
+               
+                            <div class=" col-2">
                                 <label class="form-label">Telefone:</label>
                                 <input id="telefone" class="form-control" type="text" name="telefone" value="<%= record.telefone %>" readonly>
                             </div>
             
-                            <div class="my-3 col">
+                            <div class=" col-2">
                                 <label class="form-label">Celular:</label>
                                 <input id="celular" class="form-control" type="text" name="celular" value="<%= record.celular %>" readonly>
                             </div>
-            
-                        </div>
-
-                        <div class="row ">
-
-                            <div class="my-3 col-2" col>
-                                <label for="peso" class="form-label">Sexo:</label>
-                                <input id="sexo" class="form-control" type="text" name="sexo" value="<%= record.sexo %>" readonly>
-                            </div>
-            
-                            <div class="my-3 col-2" col>
+                             <div class=" col-2" col>
                                 <label for="peso" class="form-label">Peso:</label>
                                 <input id="peso" class="form-control" type="text" name="peso" value="<%= record.peso %>" readonly>
                             </div>
-            
-                            <div class="my-3 col-2 ms-5">
+    
+                            <div class=" col-2">
                                 <label class="form-label">Altura:</label>
                                 <input id="altura" class="form-control" type="text" name="altura" value="<%= record.altura %>" readonly>
                             </div>
-            
                         </div>
-                
-        </div>                
-        <div class="container-fluid border border-1 border-drak mb-5 p-4 bg-white shadow">
-            <div class="row">
+                        
+                        <div class="row">
                     
-                <div class="my-3 col-5">
-                    <label class="form-label">Endereço:</label>
-                    <input id="endereco" class="form-control" type="text" name="endereco"  value="<%= record.endereco %>" readonly>
-                </div>
+                            <div class="my-3 col-2">
+                                <label class="form-label">Endereço:</label>
+                                <input id="endereco" class="form-control" type="text" name="endereco"  value="<%= record.endereco %>" readonly>
+                            </div>
+            
+                            <div class="my-3 col-1">
+                                <label class="form-label">Nº:</label>
+                                <input id="numero" class="form-control" type="number" name="numero" value="<%= record.numero %>" readonly>
+                            </div>
+            
+                            <div class="my-3 col-2">
+                                <label class="form-label">Complemento:</label>
+                                <input id="complemento" class="form-control" type="text" name="complemento" value="<%= record.complemento %>" readonly>
+                            </div>
 
-                <div class="my-3 col-2">
-                    <label class="form-label">Nº:</label>
-                    <input id="numero" class="form-control" type="number" name="numero" value="<%= record.numero %>" readonly>
-                </div>
+                            <div class="my-3 col-2">
+                                <label class="form-label">Bairro:</label>
+                                <input id="bairro" class="form-control" type="text" name="bairro" value="<%= record.bairro %>" readonly>
+                            </div>
+            
+                            <div class="my-3 col-2">
+                                <label class="form-label">Cidade:</label>
+                                <input id="cidade" class="form-control" type="text" name="cidade" value="<%= record.cidade %>" readonly>
+                            </div>
+            
+                            <div class="my-3 col-1">
+                                <label class="form-label">Estado:</label>
+                                <input id="estado" class="form-control" type="text" name="estado" value="<%= record.estado %>" readonly>
+                            </div>
 
-                <div class="my-3 col">
-                    <label class="form-label">Complemento:</label>
-                    <input id="complemento" class="form-control" type="text" name="complemento" value="<%= record.complemento %>" readonly>
-                </div>
-                
-            </div>
-
-            <div class="row">
-
-                <div class="my-3 col">
-                    <label class="form-label">Bairro:</label>
-                    <input id="bairro" class="form-control" type="text" name="bairro" value="<%= record.bairro %>" readonly>
-                </div>
-
-                <div class="my-3 col">
-                    <label class="form-label">Cidade:</label>
-                    <input id="cidade" class="form-control" type="text" name="cidade" value="<%= record.cidade %>" readonly>
-                </div>
-
-                <div class="my-3 col">
-                    <label class="form-label">Estado:</label>
-                    <input id="estado" class="form-control" type="text" name="estado" value="<%= record.estado %>" readonly>
-                </div>
-
-                <div class="my-3 col">
-                    <label class="form-label">CEP:</label>
-                    <input id="cep" class="form-control" type="text" name="cep" value="<%= record.cep %>" readonly>
-                </div>
-
-            </div>
-        
-        </div>   
+                            <div class="my-3 col">
+                                <label class="form-label">CEP:</label>
+                                <input id="cep" class="form-control" type="text" name="cep" value="<%= record.cep %>" readonly>
+                            </div>
+                            
+                        </div>
+                        
+        </div>                
+         
         
         <div class=" container-fluid border bg-white shadow">
 
@@ -387,12 +378,12 @@
 
             <div class="row">
 
-                <div class="my-3 col-6">
+                <div class="my-2 col-6">
                     <label class="form-label">Comentários:</label>
                     <input id="comentario" class="form-control" type="text" name="comentario" value="<%= record.comentario %>" readonly>
                 </div>
 
-                <div class="my-3 col">
+                <div class="my-2 col">
                     <label class="form-label">Data de entrega:</label>
                     <input id="data_entrega" class="form-control" type="text" name="data_entrega" value="<%= record.data_entrega %>" readonly>
                 </div>
