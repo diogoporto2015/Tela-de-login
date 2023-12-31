@@ -225,4 +225,4 @@ app.get ("/ultrassonografia.html", function(req, res) {
 
 
 app.listen(8080);
-console.log("Servidor Rodando e Funcionando! localhost:8080");
+console.log("**** Servidor Rodando e Funcionando! localhost:8080 *****");
