@@ -209,6 +209,31 @@
 
             <button onclick="imprimirFichaPesquisa()" class="btn btn-primary ms-5">Imprimir</button>
 
+            <button type="button" id="/atualizar" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalAtualizar">Atualizar</button>
+            <div id="JanelaModalAtualizar" class="modal fade " data-bs-backdrop="static">
+
+                <div class="modal-dialog modal-lg modal-dialog-centered ">
+
+                    <div class="modal-content">
+ 
+                        <div class="modal-header align-self-center">
+                            <h2 class="modal-title">Atualização da Ficha do Paciente</h2>
+                        </div>
+
+                        <div class="modal-body">
+                            <p><h3 class="text-center">PARABÉNS</h3></p>
+                            <p class="text-center">Atualização realizado com sucesso!</p>
+                            <p class="text-center">Para imprimir a ficha do paciente clique em imprimir.</p>
+                        </div>
+
+                        <div class="modal-footer ">
+                            <button type="button" class="btn btn-primary" >Imprimir</button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <button type="button" id="/deletar" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalDeletar">Deletar</button>
             <div id="JanelaModalDeletar" name="JanelaModalDeletar" class="modal fade " data-bs-backdrop="static">
 
@@ -239,7 +264,7 @@
             
             <% if (search) { %> 
                 <% if (records.length === 0) { %>
-                <p>Você pesquisou por: <%= search %>,</p>
+                <p>Você pesquisou por: <%= search %></p>
                 <p>E NENHUM REGISTRO FOI ENCONTRADO!</p> 
                 <% } else { %>
                   <ul>
