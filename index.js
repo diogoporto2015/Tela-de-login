@@ -60,7 +60,7 @@ const checkValues = [nome];
 
 connection.query(checkQuery, checkValues, (err, results) => {
   if (err) {
-    console.error('Erro ao verificar nome na pacientes:', err);
+    console.error('Erro ao verificar nome dos pacientes:', err);
     res.status(500).send('Erro ao cadastrar');
     return;
   }

@@ -184,20 +184,83 @@
             <button type="button" id="atualizar" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalAtualizar">Adicionar Exame</button>
             <div id="JanelaModalAtualizar" class="modal fade " data-bs-backdrop="static">
 
-                <div class="modal-dialog modal-lg modal-dialog-centered ">
+                <div class="modal-dialog modal-xl modal-dialog-centered ">
 
                     <div class="modal-content">
  
-                        <div class="modal-header align-self-center">
-                            <h2 class="modal-title">Novo Exame</h2>
-                        </div>
-
                         <div class="modal-body">
-                            <p><h4 class="text-center">PARABÉNS <br>Um novo exame foi incluído com sucesso!</h4></p>
-                            <p class="text-center">Para imprimir a ficha do paciente - Imprimir.</p>
-                            <p class="text-center">Para canlelar - Fechar.</p>
-                        </div>
+                        
 
+                            <% if (search) { %> 
+                                <% if (records.length === 0) { %>                                
+                                <% } else { %>
+                                  <ul>
+                                    <% records.forEach(function(record) { %>
+                                
+                                        <div class="row">
+                                            <div class="modal-header align-self-start">
+                                                <h2 class="modal-title">Adicionar Novo Exame ao Paciente</h2>
+                                            </div>
+
+                                            <div class="my-2 col-7">
+                                                <label class="form-label">Nome:</label>
+                                                <input id="nome" class="form-control" type="text" name="nome" value="<%= record.nome %>" readonly>
+                                            </div>
+                
+                                            <div class="my-2 col-2">
+                                                <label class="form-label">Reg:</label>
+                                                <input id="pacienteId" class="form-control " type="text" name="id_paciente" value="<%= record.id_paciente %>" readonly>
+                                            </div>
+                                        </div>  
+
+                                        <div class="row">
+                                            <div class="my-3 col-3">
+                                                <label class="form-label">Nome do Exame:</label>
+                                                <input id="nome_exame" class="form-control" type="text" name="nome_exame">
+                                            </div>
+                            
+                                            <div class="my-3 col-3">
+                                                <label class="form-label">Tipo de Exame:</label>
+                                                <input id="tipo_exame" class="form-control" type="text" name="tipo_exame">
+                                            </div>
+                            
+                                            <div class="my-3 col">
+                                                <label class="form-label">Convênio:</label>
+                                                <input id="convenio" class="form-control" type="text" name="convenio">
+                                            </div>
+                            
+                                            <div class="my-3 col">
+                                                <label class="form-label">Data do Exame:</label>
+                                                <input id="data_exame" class="form-control" type="date" name="data_exame">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                                    
+                                            <div class="my-3 col-3">
+                                                <label class="form-label">Médico:</label>
+                                                <input id="medico" class="form-control" type="text" name="medico">
+                                            </div>
+                            
+                                            <div class="my-3 col-6">
+                                                <label class="form-label">Comentários:</label>
+                                                <input id="comentario" class="form-control" type="text" name="comentario">
+                                            </div>
+                            
+                                            <div class="my-3 col">
+                                                <label class="form-label">Data de entrega:</label>
+                                                <input id="data_entrega" class="form-control" type="date" name="data_entrega">
+                                            </div>
+                            
+                                        </div>
+                                        <% }); %>
+                                    </ul>
+                                    <% } %>
+                                <% } %>
+
+                                        
+                                        
+                                    
+                        </div>
                         <div class="modal-footer ">
                             <button type="button" class="btn btn-primary" >Imprimir</button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal">Fechar</button>
