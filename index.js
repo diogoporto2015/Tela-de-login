@@ -68,7 +68,7 @@ connection.query(checkQuery, checkValues, (err, results) => {
   // Se o nome já existir, enviar resposta JSON com mensagem de erro
   if (results.length > 0) {
     
-    return res.status(404).json({ error: 'O Nome já está Cadastrado. Por favor, use um Nome Diferente.' });
+    return res.status(404).json({ error: 'Paciente já está Cadastrado. Por favor, use um Nome Diferente.' });
   }
   
   // Query para inserir os dados na primeira tabela
@@ -97,7 +97,7 @@ connection.query(checkQuery, checkValues, (err, results) => {
 
       console.log('Dados cadastrados com sucesso!');
       // Redirecionar para a página de sucesso após o cadastro ser concluído com êxito
-      res.render("ficha")
+      return res.status(404).json({ error: 'Paciente Cadastrado com Sucesso!' });
     });
   });
 });
