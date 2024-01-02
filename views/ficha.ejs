@@ -5,11 +5,18 @@
     <meta name="viewport" conteudo="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" conteudo="ie=edge">
     <link rel="stylesheet" href="../css/estiloMenu.css">
-    <link rel="stylesheet" href="../css/print.css">
+    <link rel="stylesheet" href="./css/print.css">
     <title>Ficha do Cliente</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <script src="./js/cadastrar.js"></script>
 <script src="../js/Usuario_existe.js"></script>
+
+<style>
+    h100{
+        height: 100px;
+    }
+   
+</style>
     
 </head>
 <body>
@@ -149,221 +156,211 @@
             </ul>  
         </div>
     </nav>
+    <div class="my-5 text-start"></div>
+    <form form class="container border bg-white shadow" id="meuFormulario" action="/cadastrar" method="POST" novalidate>
 
-    <div class="pt-4"></div>
-    <form class="container-sm pt-3 p-5 border bg-white shadow w-75 needs-validation" id="meuFormulario" action="/cadastrar" method="POST" novalidate>
-        <div class="my-3 text-start">
-            <button type="reset" class="btn btn-primary ms-5">Limpar dados</button>
-            
-            <button type="button"  class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalCadastro">Cadastrar</button>
-            <div id="JanelaModalCadastro" name="JanelaModalCadastro" class="modal fade " data-bs-backdrop="static">
+    <div class="my-3 text-start">
+        <button type="reset" class="btn btn-primary ms-5">Limpar dados</button>
+        
+        <button type="button"  class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#JanelaModalCadastro">Cadastrar</button>
+        <div id="JanelaModalCadastro" name="JanelaModalCadastro" class="modal fade " data-bs-backdrop="static">
 
-                <div class="modal-dialog modal-lg modal-dialog-centered ">
+            <div class="modal-dialog modal-lg modal-dialog-centered ">
 
-                    <div class="modal-content">
- 
-                        <div class="modal-header align-self-center">
-                            <h2 class="modal-title">Cadastro da Ficha do Paciente</h2>
+                <div class="modal-content">
+
+                    <div class="modal-header align-self-center">
+                        <h2 class="modal-title">Cadastro da Ficha do Paciente</h2>
+                    </div>
+                   
+
+                    <div class="modal-body">
+                        <p><h3 class="text-center">CADASTRO</h3></p>
+                        <p class="text-center">Deseja Cadastrar a Ficha do Paciente!</p>
+                        <p class="text-center">Para Imprimir a Ficha do Paciente clique em imprimir.</p>
+                    </div>
+                    
+                    <div class="modal-footer ">
+                        <button onclick="cadastrarPaciente()"  class="btn btn-primary" data-bs-toggle="modal">OK</button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+    </div>   
+        
+        
+            <div class="my-3 text-start"></div>
+            <div class="row">
+                <div class="mx-4 pt-2 col-4 border border-1 border-drak  bg-white shadow ">
+                    
+                    <span class="mensagem" id="mensagemCadastrar" ></span>
+                    <span class="resultado" id="resultado"></span>
+
+                    <div class="row">
+
+                        <div class="my-2">
+                            <h4 class="text-center">Dados do Paciente</h4>
                         </div>
-                       
 
-                        <div class="modal-body">
-                            <p><h3 class="text-center">CADASTRO</h3></p>
-                            <p class="text-center">Deseja Cadastrar a Ficha do Paciente!</p>
-                            <p class="text-center">Para Imprimir a Ficha do Paciente clique em imprimir.</p>
+                        <div class="my-2">
+                            <label class="form-label">Nome:</label>
+                            <input id="nome" class="form-control" type="text" name="nome" required>
                         </div>
-                        
-                        <div class="modal-footer ">
-                            <button onclick="cadastrarPaciente()"  class="btn btn-primary" data-bs-toggle="modal">OK</button>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal">Cancelar</button>
+        
+                        <div class="my-1 col-5">
+                            <label class="form-label">Data de Nascimento:</label>
+                            <input id="data_nascimento" class="form-control" type="date" name="data_nascimento" required>
+                        </div>
+
+                        <div class="my-1 col-7">
+                            <label class="form-label">CPF:</label>
+                            <input id="cpf" class="form-control" type="text" name="cpf" placeholder="000.000.000-00" required>
+                        </div>
+
+                        <div class="my-1 col-8">
+                            <label class="form-label">Email:</label>
+                            <input id="email" class="form-control" type="text" name="email" placeholder="Exemplo@exemplo.com">
+                        </div>
+        
+                        <div class="my-1 col-4">
+                            <label class="form-label">RG:</label>
+                            <input id="rg" class="form-control" type="text" name="rg" placeholder="000.000.00-0">
+                        </div>
+
+                        <div class="my-1 col-6">
+                            <label class="form-label">Telefone:</label>
+                            <input id="telefone" class="form-control" type="tel" name="telefone" placeholder="(00) 0000-0000">
+                        </div>
+        
+                        <div class="my-1 col-6">
+                            <label class="form-label">Celular:</label>
+                            <input id="celular" class="form-control" type="tel" name="celular" placeholder="(00) 9000-0000">
+                        </div>
+
+                        <div class="my-1 col-4">
+                            <label class="form-label "><h5>Sexo:</h5></label>  <br>
+                            <input type="radio" id="feminino" name="sexo"  value="F"> 
+                            <label for="feminino" class="ms-2"><h6>Feminino</h6></label> <br>
+                            <input type="radio" id="masculino" name="sexo" id="masculino" value="M">
+                            <label for="masculino" class="ms-2"><h6>Masculino</h6></label>
+                        </div>
+
+                        <div class="my-3 col-4" col>
+                            <label for="peso" class="form-label">Peso:</label>
+                            <input id="peso" class="form-control" type="text" name="peso" placeholder="000 Kg">
+                        </div>
+        
+                        <div class="my-3 col-4">
+                            <label class="form-label">Altura:</label>
+                            <input id="altura" class="form-control" type="text" name="altura" placeholder="0.00 Cm">
                         </div>
                     </div>
+
+                </div>
+                <div class="col-4 border border-1 border-drak  bg-white shadow">
+                    <div class="row">
+
+                        <div class="my-2">
+                            <h4 class="text-center">Endereço</h4>
+                        </div>
+
+                        <div class="my-3">
+                            <label class="form-label">Endereço:</label>
+                            <input id="endereco" class="form-control" type="text" name="endereco" >
+                        </div>
+        
+                        <div class="my- col-3">
+                            <label class="form-label">Nº:</label>
+                            <input id="numero" class="form-control" type="text" name="numero">
+                        </div>
+        
+                        <div class="my- col-9">
+                            <label class="form-label">Complemento:</label>
+                            <input id="complemento" class="form-control" type="text" name="complemento">
+                        </div>
+
+                        <div class="my-1 col-6">
+                            <label class="form-label">Bairro:</label>
+                            <input id="bairro" class="form-control" type="text" name="bairro">
+                        </div>
+        
+                        <div class="my-1 col-6">
+                            <label class="form-label">Cidade:</label>
+                            <input id="cidade" class="form-control" type="text" name="cidade">
+                        </div>
+        
+                        <div class="my-1 col-6">
+                            <label class="form-label">Estado:</label>
+                            <input id="estado" class="form-control" type="text" name="estado">
+                        </div>
+        
+                        <div class="my-1 col-6">
+                            <label class="form-label">CEP:</label>
+                            <input id="cep" class="form-control" type="text" name="cep"placeholder="00000-000">
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="ms-4 col-3 border border-1 border-drak  bg-white shadow">
+                    <div class="row">
+
+                        <div class="my-2">
+                            <h4 class="text-center">Exame</h4>
+                        </div>
+
+                        <div class="my-3 col-12">
+                            <label class="form-label">Nome do Exame:</label>
+                            <input id="nome_exame" class="form-control" type="text" name="nome_exame">
+                        </div>
+        
+                        <div class="col-12">
+                            <label class="form-label">Tipo de Exame:</label>
+                            <input id="tipo_exame" class="form-control" type="text" name="tipo_exame">
+                        </div>
+        
+                        <div class="my-1 col-6">
+                            <label class="form-label">Convênio:</label>
+                            <input id="convenio" class="form-control" type="text" name="convenio">
+                        </div>
+        
+                        <div class="my-1 col-6">
+                            <label class="form-label">Data do Exame:</label>
+                            <input id="data_exame" class="form-control" type="date" name="data_exame">
+                        </div>
+
+                        <div class="my-1 col-6">
+                            <label class="form-label">Médico:</label>
+                            <input id="medico" class="form-control" type="text" name="medico">
+                        </div>
+
+                        <div class="my-1 col-6">
+                            <label class="form-label">Data de entrega:</label>
+                            <input id="data_entrega" class="form-control" type="date" name="data_entrega">
+                        </div>
+        
+                        <div class="my-1 col-12">
+                            <label class="form-label">Comentários:</label>
+                            <input id="comentario" class="form-control" type="text" name="comentario">
+                        </div>
+        
+                       
+                        
+                    </div>
+                </div>
+                
+                <div class="pt-5"></div>
+                <div>
+                    <footer class="p-1 text-light text-center fixed-bottom bg-primary">
+                        &copy; Med Imagem -Todos os direitos reservados.
+                    </footer>
                 </div>
             </div>
         
-            
-
-            
-
-        </div>
-
-        <div class="container-fluid border border-1 border-drak mb-5 p-4 bg-white shadow">
-            
-            <div class="row">
-
-                <span class="mensagem" id="mensagemCadastrar" ></span>
-
-                <span class="resultado" id="resultado"></span>
-
-                <div class="my-3 col-5">
-                    <label class="form-label">Nome:</label>
-                    <input id="nome" class="form-control" type="text" name="nome" required>
-                    <div class="invalid-feedback">
-                        Você de informar o Endereço!
-                    </div>
-                    <div class="valid-feedback">
-                        Endereço informado Corretamente!
-                    </div>
-                </div>
-
-                <div class="my-3 col">
-                    <label id="div2" class="form-label">CPF:</label>
-                    <input id="cpf" class="form-control" type="text" name="cpf" placeholder="000.000.000-00" required>
-                </div>
-
-                <div class="my-3 col">
-                    <label class="form-label">RG:</label>
-                    <input id="rg" class="form-control" type="text" name="rg" placeholder="000.000.00-0">
-                </div>
-
-            </div>
-
-            <div class="row">
-
-                <div class="my-3 col">
-                    <label class="form-label">Email:</label>
-                    <input id="email" class="form-control" type="text" name="email" placeholder="Exemplo@exemplo.com">
-                </div>
-
-                <div class="my-3 col">
-                    <label class="form-label">Data de Nascimento:</label>
-                    <input id="data_nascimento" class="form-control" type="date" name="data_nascimento" required>
-                </div>
-
-                <div class="my-3 col">
-                    <label class="form-label">Telefone:</label>
-                    <input id="telefone" class="form-control" type="tel" name="telefone" placeholder="(00) 0000-0000">
-                </div>
-
-                <div class="my-3 col">
-                    <label class="form-label">Celular:</label>
-                    <input id="celular" class="form-control" type="tel" name="celular" placeholder="(00) 9000-0000">
-                </div>
-
-            </div>
-
-            <div class="row ">
-
-                <div class="my-3 col-2 ms-4 ">
-                    <label class="form-label "><h5>Sexo:</h5></label>  <br>
-                    <input type="radio" id="feminino" name="sexo"  value="F"> 
-                    <label for="feminino" class="ms-2"><h6>Feminino</h6></label> <br>
-                    <input type="radio" id="masculino" name="sexo" id="masculino" value="M">
-                    <label for="masculino" class="ms-2"><h6>Masculino</h6></label>
-                </div>
-
-                <div class="my-3 col-2" col>
-                    <label for="peso" class="form-label">Peso:</label>
-                    <input id="peso" class="form-control" type="text" name="peso" placeholder="000 Kg">
-                </div>
-
-                <div class="my-3 col-2 ms-5">
-                    <label class="form-label">Altura:</label>
-                    <input id="altura" class="form-control" type="text" name="altura" placeholder="0.00 Cm">
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class=" container-fluid border mb-5 p-4 bg-white shadow">
-
-            <div class="row">
-
-                <div class="my-3 col-5">
-                    <label class="form-label">Endereço:</label>
-                    <input id="endereco" class="form-control" type="text" name="endereco" >
-                </div>
-
-                <div class="my-3 col-2">
-                    <label class="form-label">Nº:</label>
-                    <input id="numero" class="form-control" type="text" name="numero">
-                </div>
-
-                <div class="my-3 col">
-                    <label class="form-label">Complemento:</label>
-                    <input id="complemento" class="form-control" type="text" name="complemento">
-                </div>
-                
-            </div>
-
-            <div class="row">
-
-                <div class="my-3 col">
-                    <label class="form-label">Bairro:</label>
-                    <input id="bairro" class="form-control" type="text" name="bairro">
-                </div>
-
-                <div class="my-3 col">
-                    <label class="form-label">Cidade:</label>
-                    <input id="cidade" class="form-control" type="text" name="cidade">
-                </div>
-
-                <div class="my-3 col">
-                    <label class="form-label">Estado:</label>
-                    <input id="estado" class="form-control" type="text" name="estado">
-                </div>
-
-                <div class="my-3 col">
-                    <label class="form-label">CEP:</label>
-                    <input id="cep" class="form-control" type="text" name="cep"placeholder="00000-000">
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class=" container-fluid border bg-white shadow">
-
-            <div class="row">
-
-                <div class="my-3 col-3">
-                    <label class="form-label">Nome do Exame:</label>
-                    <input id="nome_exame" class="form-control" type="text" name="nome_exame">
-                </div>
-
-                <div class="my-3 col-3">
-                    <label class="form-label">Tipo de Exame:</label>
-                    <input id="tipo_exame" class="form-control" type="text" name="tipo_exame">
-                </div>
-
-                <div class="my-3 col">
-                    <label class="form-label">Convênio:</label>
-                    <input id="convenio" class="form-control" type="text" name="convenio">
-                </div>
-
-                <div class="my-3 col">
-                    <label class="form-label">Data do Exame:</label>
-                    <input id="data_exame" class="form-control" type="date" name="data_exame">
-                </div>
-                
-            </div>
-
-            <div class="row">
-
-                
-
-                <div class="my-3 col-3">
-                    <label class="form-label">Médico:</label>
-                    <input id="medico" class="form-control" type="text" name="medico">
-                </div>
-
-                <div class="my-3 col-6">
-                    <label class="form-label">Comentários:</label>
-                    <input id="comentario" class="form-control" type="text" name="comentario">
-                </div>
-
-                <div class="my-3 col">
-                    <label class="form-label">Data de entrega:</label>
-                    <input id="data_entrega" class="form-control" type="date" name="data_entrega">
-                </div>
-
-            </div>
-        </div>
-
-
-
     </form>
+    
+ 
 
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>

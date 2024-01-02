@@ -196,7 +196,7 @@
                                 <% } else { %>
                                   <ul>
                                     <% records.forEach(function(record) { %>
-                                
+                                        
                                         <div class="row">
                                             <div class="modal-header align-self-start">
                                                 <h2 class="modal-title">Adicionar Novo Exame ao Paciente</h2>
@@ -214,19 +214,20 @@
                                         </div>  
 
                                         <div class="row">
+                                            
                                             <div class="my-3 col-3">
                                                 <label class="form-label">Nome do Exame:</label>
-                                                <input id="nome_exame" class="form-control" type="text" name="nome_exame">
+                                                <input id="nome_exame" class="form-control" type="text" name="nome_exame" value="<%= record.nome_exame %>">
                                             </div>
                             
                                             <div class="my-3 col-3">
                                                 <label class="form-label">Tipo de Exame:</label>
-                                                <input id="tipo_exame" class="form-control" type="text" name="tipo_exame">
+                                                <input id="tipo_exame" class="form-control" type="text" name="tipo_exame" value="<%= record.tipo_exame %>">
                                             </div>
                             
                                             <div class="my-3 col">
                                                 <label class="form-label">Convênio:</label>
-                                                <input id="convenio" class="form-control" type="text" name="convenio">
+                                                <input id="convenio" class="form-control" type="text" name="convenio" value="<%= record.convenio %>">
                                             </div>
                             
                                             <div class="my-3 col">
@@ -238,12 +239,12 @@
                                                     
                                             <div class="my-3 col-3">
                                                 <label class="form-label">Médico:</label>
-                                                <input id="medico" class="form-control" type="text" name="medico">
+                                                <input id="medico" class="form-control" type="text" name="medico" value="<%= record.medico %>">
                                             </div>
                             
                                             <div class="my-3 col-6">
                                                 <label class="form-label">Comentários:</label>
-                                                <input id="comentario" class="form-control" type="text" name="comentario">
+                                                <input id="comentario" class="form-control" type="text" name="comentario" value="<%= record.comentario %>">
                                             </div>
                             
                                             <div class="my-3 col">
@@ -256,13 +257,11 @@
                                     </ul>
                                     <% } %>
                                 <% } %>
-
-                                        
-                                        
-                                    
+       
                         </div>
                         <div class="modal-footer ">
-                            <button type="button" class="btn btn-primary" >Imprimir</button>
+                            <button type="reset" class="btn btn-primary ms-5">Limpar dados</button>
+                            <button type="button" class="btn btn-primary" >Salvar</button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal">Fechar</button>
                         </div>
 
@@ -327,8 +326,9 @@
             
             <% if (search) { %> 
                 <% if (records.length === 0) { %>
-                <p>Você pesquisou por: <%= search %></p>
-                <p>E NENHUM REGISTRO FOI ENCONTRADO!</p> 
+                    <div class="my-5 text-start"></div>
+                <p>VOCÊ PESQUISOU POR: <%= search %> E NENHUM REGISTRO FOI ENCONTRADO!</p> 
+                <div class="my-5 text-start"></div>
                 <% } else { %>
                   <ul>
                     <% records.forEach(function(record) { %>
