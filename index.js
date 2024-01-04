@@ -128,7 +128,7 @@ app.get('/', function(req, res) {
 
   if (search) {
     // Consulta para obter informações do paciente
-    const pacienteQuery = 'SELECT * FROM pacientes WHERE nome = ?';
+    const pacienteQuery = 'SELECT pacientes.*, DATE_FORMAT(data_nascimento, "%d/%m/%Y") AS data_nascimento FROM pacientes WHERE nome = ?';
 
     connection.query(pacienteQuery, [search], function(err, pacientes, fields) {
       if (err) throw err;
@@ -141,17 +141,17 @@ app.get('/', function(req, res) {
         connection.query(examesQuery, [paciente.id_paciente], function(err, exames, fields) {
           if (err) throw err;
 
-          res.render('pesquisa', { paciente: paciente, exames: exames, search: search });
+          res.render('pesquisa', { paciente: paciente, exames: exames, search: search, noResults: false, noTerm: false });
         });
       } else {
         // Nenhum paciente encontrado
-        res.render('pesquisa', { search: search, noResults: true });
+        res.render('pesquisa', { search: search, noResults: true, noTerm: false });
       }
     });
 
   } else {
     // Nenhum termo de pesquisa fornecido
-    res.render('pesquisa', { search: search });
+    res.render('pesquisa', { search: search, noTerm: true, noTerm: true });
   }
 });
 
