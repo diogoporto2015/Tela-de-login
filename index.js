@@ -145,7 +145,7 @@ app.get('/', function(req, res) {
         });
       } else {
         // Nenhum paciente encontrado
-        res.render('pesquisa', { search: search });
+        res.render('pesquisa', { search: search, noResults: true });
       }
     });
 
