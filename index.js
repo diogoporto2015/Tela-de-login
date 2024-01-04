@@ -106,7 +106,7 @@ connection.query(checkQuery, checkValues, (err, results) => {
 
 
 // Listar registro da tabela  do banco de dados Mysql
-app.get('/', function(req, res) {
+/*app.get('/', function(req, res) {
   const search = req.query.search;
 
   if (search) {
@@ -121,9 +121,9 @@ app.get('/', function(req, res) {
   } else {
     res.render('pesquisa', { search: search });
   }
-});
+});*/
 
-/*app.get('/', function(req, res) {
+app.get('/', function(req, res) {
   const search = req.query.search;
 
   if (search) {
@@ -153,7 +153,7 @@ app.get('/', function(req, res) {
     // Nenhum termo de pesquisa fornecido
     res.render('pesquisa', { search: search });
   }
-});*/
+});
 
 
 
