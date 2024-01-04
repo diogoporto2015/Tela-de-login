@@ -107,21 +107,58 @@ connection.query(checkQuery, checkValues, (err, results) => {
 
 // Listar registro da tabela  do banco de dados Mysql
 app.get('/', function(req, res) {
-    const search = req.query.search;
-  
-    if (search) {
-      const query = 'SELECT pacientes.*, exames.*, DATE_FORMAT(data_nascimento, "%d/%m/%Y") AS data_nascimento, DATE_FORMAT(data_exame, "%d/%m/%Y") AS data_exame,DATE_FORMAT(data_entrega, "%d/%m/%Y") AS data_entrega FROM exames inner join pacientes on exames.paciente_id = pacientes.id_paciente  WHERE nome = \'' + search + '\'';
-  
-      connection.query(query, function(err, rows, fields) {
-        if (err) throw err;
-        
-        res.render('pesquisa', { records: rows, search: search });
-      });
+  const search = req.query.search;
 
-    } else {
-      res.render('pesquisa', { search: search });
-    }
+  if (search) {
+    const query = 'SELECT pacientes.*, exames.*, DATE_FORMAT(data_nascimento, "%d/%m/%Y") AS data_nascimento, DATE_FORMAT(data_exame, "%d/%m/%Y") AS data_exame,DATE_FORMAT(data_entrega, "%d/%m/%Y") AS data_entrega FROM exames inner join pacientes on exames.paciente_id = pacientes.id_paciente  WHERE nome = \'' + search + '\'';
+
+    connection.query(query, function(err, rows, fields) {
+      if (err) throw err;
+      
+      res.render('pesquisa', { records: rows, search: search });
+    });
+
+  } else {
+    res.render('pesquisa', { search: search });
+  }
 });
+
+/*app.get('/', function(req, res) {
+  const search = req.query.search;
+
+  if (search) {
+    // Consulta para obter informações do paciente
+    const pacienteQuery = 'SELECT * FROM pacientes WHERE nome = ?';
+
+    connection.query(pacienteQuery, [search], function(err, pacientes, fields) {
+      if (err) throw err;
+
+      if (pacientes.length > 0) {
+        const paciente = pacientes[0];
+        // Consulta para obter exames relacionados a esse paciente
+        const examesQuery = 'SELECT exames.*, DATE_FORMAT(data_exame, "%d/%m/%Y") AS data_exame, DATE_FORMAT(data_entrega, "%d/%m/%Y")  AS data_entrega FROM exames WHERE paciente_id = ?';
+
+        connection.query(examesQuery, [paciente.id_paciente], function(err, exames, fields) {
+          if (err) throw err;
+
+          res.render('pesquisa', { paciente: paciente, exames: exames, search: search });
+        });
+      } else {
+        // Nenhum paciente encontrado
+        res.render('pesquisa', { search: search });
+      }
+    });
+
+  } else {
+    // Nenhum termo de pesquisa fornecido
+    res.render('pesquisa', { search: search });
+  }
+});*/
+
+
+
+
+
 
 
 // Deletar um registro por ID

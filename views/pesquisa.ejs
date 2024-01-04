@@ -214,7 +214,7 @@
                                         </div>  
 
                                         <div class="row">
-                                            
+
                                             <div class="my-3 col-3">
                                                 <label class="form-label">Nome do Exame:</label>
                                                 <input id="nome_exame" class="form-control" type="text" name="nome_exame" value="<%= record.nome_exame %>">
@@ -438,47 +438,54 @@
         </div>                
          
         
-        <div class=" container-fluid border bg-white shadow">
+        
+        <div class="ms-4 col-3 border border-1 border-drak  bg-white shadow"></div>
 
             <div class="row">
 
-                <div class="my-3 col-3">
-                    <label class="form-label">Nome do Exame:</label>
-                    <input id="nome_exame" class="form-control" type="text" name="nome_exame" value="<%= record.nome_exame %>" readonly> 
-                </div>
-
-                <div class="my-3 col-3">
-                    <label class="form-label">Tipo de Exame:</label>
-                    <input id="tipo_exame" class="form-control" type="text" name="tipo_exame" value="<%= record.tipo_exame %>" readonly>
-                </div>
-
-                <div class="my-3 col">
-                    <label class="form-label">Convênio:</label>
-                    <input id="convenio" class="form-control" type="text" name="convenio" value="<%= record.convenio %>" readonly>
-                </div>
-
-                <div class="my-3 col">
-                    <label class="form-label">Data do Exame:</label>
-                    <input id="data_exame" class="form-control" type="text" name="data_exame" value="<%= record.data_exame %>" readonly>
+                <h2 class="text-center my-4">EXAMES</h2>
+                
+                <div class="container">
+                    <table class="table table-striped table-hover caption-top">
+                        <thead >
+                            <tr>
+                                <th>Exame</th>
+                                <th>Tipo do Exame</th>
+                                <th>Comentários</th>
+                                <th>Data do Exame</th>
+                                <th>Entrega do Exame</th>
+                                <th>Convênio</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            <tr>
+                                <td><%= record.nome_exame %></td>
+                                <td><%= record.tipo_exame %></td>
+                                <td><%= record.comentario %></td>
+                                <td><%= record.data_exame %></td>
+                                <td><%= record.data_entrega %></td>
+                                <td><%= record.convenio %></td>
+                            </tr>
+                            <tr>
+                                <td>Coluna 1</td>
+                                <td>Coluna 2</td>
+                                <td>Coluna 3</td>
+                                <td>Coluna 4</td>
+                                <td>Coluna 5</td>
+                                <td>Coluna 6</td>
+                            </tr>
+                           
+                        </tbody>
+                        
+                    </table>
                 </div>
                 
             </div>
 
-            <div class="row">
-
-                <div class="my-2 col-6">
-                    <label class="form-label">Comentários:</label>
-                    <input id="comentario" class="form-control" type="text" name="comentario" value="<%= record.comentario %>" readonly>
-                </div>
-
-                <div class="my-2 col">
-                    <label class="form-label">Data de entrega:</label>
-                    <input id="data_entrega" class="form-control" type="text" name="data_entrega" value="<%= record.data_entrega %>" readonly>
-                </div>
-
-            </div>
         </div>
-                        
+      
+    </div>
+
         <% }); %>
                     </ul>
                   <% } %>
